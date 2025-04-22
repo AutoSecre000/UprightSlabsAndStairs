@@ -1,0 +1,17 @@
+{
+  "block.uprightss.glass_upright_slab": "Glass Upright Slab",
+  "block.uprightss.glass_upright_stairs": "Glass Upright Stairs",
+  "block.uprightss.oak_upright_slab": "Oak Upright Slab",
+  "block.uprightss.oak_upright_stairs": "Oak Upright Stairs",
+  "block.uprightss.stone_upright_slab": "Stone Upright Slab",
+  "block.uprightss.stone_upright_stairs": "Stone Upright Stairs",
+  "creative_tab.uss": "Upright Slabs & Stairs",
+  "description.brief.default": "[SHIFT] for more information",
+  "description.detail.block.uprightss.glass_upright_slab": "Glass Upright Slab",
+  "description.detail.block.uprightss.glass_upright_stairs": "Glass Upright Stairs",
+  "description.detail.block.uprightss.oak_upright_slab": "Oak Upright Slab",
+  "description.detail.block.uprightss.oak_upright_stairs": "Oak Upright Stairs",
+  "description.detail.block.uprightss.stone_upright_slab": "Stone Upright Slab",
+  "description.detail.block.uprightss.stone_upright_stairs": "Stone Upright Stairs",
+  "description.detail.default": "Upright Slabs & Stairs"
+}

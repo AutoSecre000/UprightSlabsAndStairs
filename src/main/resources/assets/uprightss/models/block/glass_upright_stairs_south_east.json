@@ -1,0 +1,8 @@
+{
+	"parent": "uprightss:block/upright_stairs_south_east",
+	"textures": {
+		"outer": "minecraft:block/glass",
+		"inner": "uprightss:block/glass_upright_slab_left_right",
+		"side": "uprightss:block/glass_upright_stairs_south_east"
+	}
+}

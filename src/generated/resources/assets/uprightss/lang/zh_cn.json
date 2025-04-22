@@ -1,0 +1,17 @@
+{
+  "block.uprightss.glass_upright_slab": "玻璃台阶（竖直）",
+  "block.uprightss.glass_upright_stairs": "玻璃楼梯（竖直）",
+  "block.uprightss.oak_upright_slab": "橡木台阶（竖直）",
+  "block.uprightss.oak_upright_stairs": "橡木楼梯（竖直）",
+  "block.uprightss.stone_upright_slab": "石头台阶（竖直）",
+  "block.uprightss.stone_upright_stairs": "石头楼梯（竖直）",
+  "creative_tab.uss": "竖直台梯",
+  "description.brief.default": "[SHIFT] 查看详细信息",
+  "description.detail.block.uprightss.glass_upright_slab": "玻璃台阶（竖直）",
+  "description.detail.block.uprightss.glass_upright_stairs": "玻璃楼梯（竖直）",
+  "description.detail.block.uprightss.oak_upright_slab": "橡木台阶（竖直）",
+  "description.detail.block.uprightss.oak_upright_stairs": "橡木楼梯（竖直）",
+  "description.detail.block.uprightss.stone_upright_slab": "石头台阶（竖直）",
+  "description.detail.block.uprightss.stone_upright_stairs": "石头楼梯（竖直）",
+  "description.detail.default": "竖直台梯"
+}
