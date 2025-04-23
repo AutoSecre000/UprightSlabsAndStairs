@@ -43,6 +43,18 @@ public class BlockTagsGenerators extends BlockTagsProvider {
                 } else if (blockLib.mineableLevel == BlockLib.LEVEL.DIAMOND_TOOLS) {
                     this.tag(BlockTags.NEEDS_DIAMOND_TOOL).add(blockLib.block);
                 }
+                if (blockLib.isSlab) {
+                    if (blockLib.isWooden) {
+                        this.tag(BlockTags.WOODEN_SLABS).add(blockLib.block);
+                    }
+                    this.tag(BlockTags.SLABS).add(blockLib.block);
+                }
+                if (blockLib.isStairs) {
+                    if (blockLib.isWooden) {
+                        this.tag(BlockTags.WOODEN_STAIRS).add(blockLib.block);
+                    }
+                    this.tag(BlockTags.STAIRS).add(blockLib.block);
+                }
             }
         }
     }

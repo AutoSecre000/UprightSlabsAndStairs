@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/spruce_planks",
+    "back": "minecraft:block/spruce_planks",
+    "side": "minecraft:block/spruce_planks",
+    "top": "minecraft:block/spruce_planks",
+    "bottom": "minecraft:block/spruce_planks"
+  }
+}

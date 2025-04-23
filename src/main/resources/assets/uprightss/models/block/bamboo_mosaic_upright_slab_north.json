@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/bamboo_mosaic",
+    "back": "minecraft:block/bamboo_mosaic",
+    "side": "minecraft:block/bamboo_mosaic",
+    "top": "minecraft:block/bamboo_mosaic",
+    "bottom": "minecraft:block/bamboo_mosaic"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "type=north_west": {
+      "model": "uprightss:block/cut_red_sandstone_upright_stairs_north_west"
+    },
+    "type=south_west": {
+      "model": "uprightss:block/cut_red_sandstone_upright_stairs_south_west"
+    },
+    "type=north_east": {
+      "model": "uprightss:block/cut_red_sandstone_upright_stairs_north_east"
+    },
+    "type=south_east": {
+      "model": "uprightss:block/cut_red_sandstone_upright_stairs_south_east"
+    }
+  }
+}

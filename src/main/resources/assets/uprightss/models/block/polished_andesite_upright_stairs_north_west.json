@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_west",
+  "textures": {
+    "outer": "minecraft:block/polished_andesite",
+    "inner": "minecraft:block/polished_andesite",
+    "top": "minecraft:block/polished_andesite",
+    "bottom": "minecraft:block/polished_andesite"
+  }
+}

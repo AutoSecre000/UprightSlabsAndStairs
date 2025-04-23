@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/dark_prismarine",
+    "inner": "minecraft:block/dark_prismarine",
+    "top": "minecraft:block/dark_prismarine",
+    "bottom": "minecraft:block/dark_prismarine"
+  }
+}

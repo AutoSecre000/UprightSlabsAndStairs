@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_west",
+  "textures": {
+    "outer": "minecraft:block/cobbled_deepslate",
+    "inner": "minecraft:block/cobbled_deepslate",
+    "top": "minecraft:block/cobbled_deepslate",
+    "bottom": "minecraft:block/cobbled_deepslate"
+  }
+}

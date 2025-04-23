@@ -18,6 +18,8 @@ public final class BlockLib extends ModRegistryLib<Block> {
     public LEVEL mineableLevel = LEVEL.WOOD;
     public boolean isDropSelf = true;
     public boolean isSlab = false;
+    public boolean isStairs = false;
+    public boolean isWooden = false;
     public ModItem dropItem;
     public float minDrop = 1f;
     public float maxDrop = 1f;
@@ -77,8 +79,18 @@ public final class BlockLib extends ModRegistryLib<Block> {
         return this;
     }
 
-    public BlockLib slabBehavior() {
+    public BlockLib wooden() {
+        this.isWooden = true;
+        return this;
+    }
+
+    public BlockLib slab() {
         this.isSlab = true;
+        return this;
+    }
+
+    public BlockLib stairs() {
+        this.isStairs = true;
         return this;
     }
 

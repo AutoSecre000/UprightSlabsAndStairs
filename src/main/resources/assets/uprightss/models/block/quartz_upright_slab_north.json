@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/quartz_block_side",
+    "back": "minecraft:block/quartz_block_side",
+    "side": "minecraft:block/quartz_block_side",
+    "top": "minecraft:block/quartz_block_top",
+    "bottom": "minecraft:block/quartz_block_bottom"
+  }
+}

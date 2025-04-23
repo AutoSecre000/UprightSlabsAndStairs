@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_west",
+  "textures": {
+    "front": "minecraft:block/andesite",
+    "back": "minecraft:block/andesite",
+    "side": "minecraft:block/andesite",
+    "top": "minecraft:block/andesite",
+    "bottom": "minecraft:block/andesite"
+  }
+}

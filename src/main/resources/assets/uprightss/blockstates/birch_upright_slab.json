@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "type=north": {
+      "model": "uprightss:block/birch_upright_slab_north"
+    },
+    "type=east": {
+      "model": "uprightss:block/birch_upright_slab_east"
+    },
+    "type=west": {
+      "model": "uprightss:block/birch_upright_slab_west"
+    },
+    "type=south": {
+      "model": "uprightss:block/birch_upright_slab_south"
+    },
+    "type=double": {
+      "model": "minecraft:block/birch_planks"
+    }
+  }
+}

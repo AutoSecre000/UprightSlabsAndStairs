@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/oxidized_cut_copper",
+    "inner": "minecraft:block/oxidized_cut_copper",
+    "top": "minecraft:block/oxidized_cut_copper",
+    "bottom": "minecraft:block/oxidized_cut_copper"
+  }
+}

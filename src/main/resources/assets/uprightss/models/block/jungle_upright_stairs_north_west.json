@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_west",
+  "textures": {
+    "outer": "minecraft:block/jungle_planks",
+    "inner": "minecraft:block/jungle_planks",
+    "top": "minecraft:block/jungle_planks",
+    "bottom": "minecraft:block/jungle_planks"
+  }
+}

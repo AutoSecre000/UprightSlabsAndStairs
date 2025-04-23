@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_east",
+  "textures": {
+    "front": "minecraft:block/bricks",
+    "back": "minecraft:block/bricks",
+    "side": "minecraft:block/bricks",
+    "top": "minecraft:block/bricks",
+    "bottom": "minecraft:block/bricks"
+  }
+}
