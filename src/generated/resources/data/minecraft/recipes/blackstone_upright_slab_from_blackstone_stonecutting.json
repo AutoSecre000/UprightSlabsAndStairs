@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "minecraft:blackstone"
+  },
+  "result": "uprightss:blackstone_upright_slab"
+}
