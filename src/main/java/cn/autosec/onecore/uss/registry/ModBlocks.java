@@ -4,7 +4,7 @@ import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.Utils;
 import cn.autosec.onecore.uss.definition.ItemLib;
 import cn.autosec.onecore.uss.definition.custom.CustomBlockItem;
-import cn.autosec.onecore.uss.definition.custom.block.*;
+import cn.autosec.onecore.uss.definition.custom.block.upright.*;
 import cn.autosec.onecore.uss.definition.registries.ModBlock;
 import cn.autosec.onecore.uss.definition.BlockLib;
 import cn.autosec.onecore.uss.definition.registries.ModItem;

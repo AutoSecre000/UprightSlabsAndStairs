@@ -1,0 +1,8 @@
+package cn.autosec.onecore.uss.definition.custom.block.upright;
+
+public class RedSandstoneUprightStairsBlock extends UprightStairsBlock {
+
+    public RedSandstoneUprightStairsBlock(Properties properties) {
+        super(properties);
+    }
+}
