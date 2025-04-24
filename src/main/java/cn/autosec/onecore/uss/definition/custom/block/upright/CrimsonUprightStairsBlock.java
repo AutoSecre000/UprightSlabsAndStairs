@@ -1,8 +1,0 @@
-package cn.autosec.onecore.uss.definition.custom.block.upright;
-
-public class CrimsonUprightStairsBlock extends UprightStairsBlock {
-
-    public CrimsonUprightStairsBlock(Properties properties) {
-        super(properties);
-    }
-}
