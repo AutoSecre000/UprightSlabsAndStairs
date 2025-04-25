@@ -1,10 +1,8 @@
 package cn.autosec.onecore.uss.definition.custom.block.upright.copper;
 
-import cn.autosec.onecore.uss.definition.custom.block.upright.UprightSlabBlock;
-
-public class OxidizedCutCopperUprightSlabBlock extends UprightSlabBlock {
+public class OxidizedCutCopperUprightSlabBlock extends CopperUprightSlabBlock {
 
     public OxidizedCutCopperUprightSlabBlock(Properties properties) {
-        super(properties);
+        super(WeatherState.OXIDIZED, properties);
     }
 }

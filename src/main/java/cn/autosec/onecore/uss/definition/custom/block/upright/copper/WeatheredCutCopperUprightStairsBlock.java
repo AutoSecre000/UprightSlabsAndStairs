@@ -1,10 +1,8 @@
 package cn.autosec.onecore.uss.definition.custom.block.upright.copper;
 
-import cn.autosec.onecore.uss.definition.custom.block.upright.UprightStairsBlock;
-
-public class WeatheredCutCopperUprightStairsBlock extends UprightStairsBlock {
+public class WeatheredCutCopperUprightStairsBlock extends CopperUprightStairsBlock {
 
     public WeatheredCutCopperUprightStairsBlock(Properties properties) {
-        super(properties);
+        super(WeatherState.WEATHERED, properties);
     }
 }
