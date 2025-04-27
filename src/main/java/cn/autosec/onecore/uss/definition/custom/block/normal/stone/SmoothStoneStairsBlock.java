@@ -1,4 +1,4 @@
-package cn.autosec.onecore.uss.definition.custom.block.normal.stone.stone;
+package cn.autosec.onecore.uss.definition.custom.block.normal.stone;
 
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
