@@ -87,6 +87,8 @@
     "uprightss:deepslate_tile_upright_slab",
     "uprightss:deepslate_tile_upright_stairs",
     "uprightss:deepslate_brick_upright_slab",
-    "uprightss:deepslate_brick_upright_stairs"
+    "uprightss:deepslate_brick_upright_stairs",
+    "uprightss:smooth_stone_stairs",
+    "uprightss:smooth_stone_transverse_stairs"
   ]
 }

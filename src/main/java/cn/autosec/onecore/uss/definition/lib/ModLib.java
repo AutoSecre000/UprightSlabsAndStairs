@@ -1,4 +1,4 @@
-package cn.autosec.onecore.uss.definition;
+package cn.autosec.onecore.uss.definition.lib;
 
 import cn.autosec.onecore.uss.Config;
 import cn.autosec.onecore.uss.OneCore;

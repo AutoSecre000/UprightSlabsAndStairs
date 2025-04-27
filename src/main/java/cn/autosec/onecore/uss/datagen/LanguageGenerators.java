@@ -2,8 +2,7 @@ package cn.autosec.onecore.uss.datagen;
 
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.Utils;
-import cn.autosec.onecore.uss.definition.BlockLib;
-import cn.autosec.onecore.uss.definition.ItemLib;
+import cn.autosec.onecore.uss.definition.lib.BlockLib;
 import cn.autosec.onecore.uss.registry.ModBlocks;
 import cn.autosec.onecore.uss.registry.ModCreativeTabs;
 import net.minecraft.data.PackOutput;

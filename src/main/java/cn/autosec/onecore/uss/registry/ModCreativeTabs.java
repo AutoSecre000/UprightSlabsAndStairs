@@ -2,8 +2,8 @@ package cn.autosec.onecore.uss.registry;
 
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.Utils;
-import cn.autosec.onecore.uss.definition.BlockLib;
-import cn.autosec.onecore.uss.definition.ItemLib;
+import cn.autosec.onecore.uss.definition.lib.BlockLib;
+import cn.autosec.onecore.uss.definition.lib.ItemLib;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

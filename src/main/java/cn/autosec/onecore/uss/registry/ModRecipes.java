@@ -1,7 +1,7 @@
 package cn.autosec.onecore.uss.registry;
 
 import cn.autosec.onecore.uss.OneCore;
-import cn.autosec.onecore.uss.definition.StoneCutterRecipeLib;
+import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.recipes.*;
@@ -30,7 +30,7 @@ public class ModRecipes {
                         ItemPredicate.Builder.item().of(input).build())));
     }
 
-    private static void AddStairsInputRecipe(Item input, Item output, String trigger) {
+    private static void AddUprightStairsInputRecipe(Item input, Item output, String trigger) {
         craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
                 .pattern("###").pattern("## ").pattern("#  ")
                 .define('#', input).group(OneCore.MODID)
@@ -38,120 +38,143 @@ public class ModRecipes {
                         ItemPredicate.Builder.item().of(input).build())));
     }
 
+    private static void AddStairsInputRecipe(Item input, Item output, String trigger) {
+        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
+                .pattern("#  ").pattern("## ").pattern("###")
+                .define('#', input).group(OneCore.MODID)
+                .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
+                        ItemPredicate.Builder.item().of(input).build())));
+    }
+
+    private static void AddTransverseStairsInputRecipe(Item input1, Item input2, Item output, String trigger) {
+        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
+                .pattern("@  ").pattern("@@@").pattern("###")
+                .define('#', input1).group(OneCore.MODID)
+                .define('@', input2).group(OneCore.MODID)
+                .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
+                        ItemPredicate.Builder.item().of(input1).build()))
+                .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
+                        ItemPredicate.Builder.item().of(input2).build())));
+    }
+
     public static List<RecipeBuilder> getCraftingRecipeBuilders() {
         if (craftingRecipes.isEmpty()) {
             AddSimple3VInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.PRISMARINE_BRICKS, ModBlocks.PRISMARINE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.PRISMARINE_BRICKS, ModBlocks.PRISMARINE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.PRISMARINE_BRICKS, ModBlocks.PRISMARINE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.DARK_PRISMARINE, ModBlocks.DARK_PRISMARINE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.DARK_PRISMARINE, ModBlocks.DARK_PRISMARINE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.DARK_PRISMARINE, ModBlocks.DARK_PRISMARINE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.OAK_PLANKS, ModBlocks.OAK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.OAK_PLANKS, ModBlocks.OAK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.OAK_PLANKS, ModBlocks.OAK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.SPRUCE_PLANKS, ModBlocks.SPRUCE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.SPRUCE_PLANKS, ModBlocks.SPRUCE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.SPRUCE_PLANKS, ModBlocks.SPRUCE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.BIRCH_PLANKS, ModBlocks.BIRCH_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.BIRCH_PLANKS, ModBlocks.BIRCH_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.BIRCH_PLANKS, ModBlocks.BIRCH_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.JUNGLE_PLANKS, ModBlocks.JUNGLE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.JUNGLE_PLANKS, ModBlocks.JUNGLE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.JUNGLE_PLANKS, ModBlocks.JUNGLE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.ACACIA_PLANKS, ModBlocks.ACACIA_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.ACACIA_PLANKS, ModBlocks.ACACIA_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.ACACIA_PLANKS, ModBlocks.ACACIA_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.CHERRY_PLANKS, ModBlocks.CHERRY_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.CHERRY_PLANKS, ModBlocks.CHERRY_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.CHERRY_PLANKS, ModBlocks.CHERRY_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.DARK_OAK_PLANKS, ModBlocks.DARK_OAK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.DARK_OAK_PLANKS, ModBlocks.DARK_OAK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.DARK_OAK_PLANKS, ModBlocks.DARK_OAK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.MANGROVE_PLANKS, ModBlocks.MANGROVE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.MANGROVE_PLANKS, ModBlocks.MANGROVE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.MANGROVE_PLANKS, ModBlocks.MANGROVE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.BAMBOO_BLOCK, ModBlocks.BAMBOO_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.BAMBOO_BLOCK, ModBlocks.BAMBOO_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.BAMBOO_BLOCK, ModBlocks.BAMBOO_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.BAMBOO_MOSAIC, ModBlocks.BAMBOO_MOSAIC_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.BAMBOO_MOSAIC, ModBlocks.BAMBOO_MOSAIC_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.BAMBOO_MOSAIC, ModBlocks.BAMBOO_MOSAIC_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.STONE, ModBlocks.STONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.STONE, ModBlocks.STONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.STONE, ModBlocks.STONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.SANDSTONE, ModBlocks.SANDSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.SANDSTONE, ModBlocks.SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.SANDSTONE, ModBlocks.SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.CUT_SANDSTONE, ModBlocks.CUT_SANDSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.CUT_SANDSTONE, ModBlocks.CUT_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.CUT_SANDSTONE, ModBlocks.CUT_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.COBBLESTONE, ModBlocks.COBBLESTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.COBBLESTONE, ModBlocks.COBBLESTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.COBBLESTONE, ModBlocks.COBBLESTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.BRICKS, ModBlocks.BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.BRICKS, ModBlocks.BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.BRICKS, ModBlocks.BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.STONE_BRICKS, ModBlocks.STONE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.STONE_BRICKS, ModBlocks.STONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.STONE_BRICKS, ModBlocks.STONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.MUD_BRICKS, ModBlocks.MUD_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.MUD_BRICKS, ModBlocks.MUD_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.MUD_BRICKS, ModBlocks.MUD_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.NETHER_BRICKS, ModBlocks.NETHER_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.NETHER_BRICKS, ModBlocks.NETHER_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.NETHER_BRICKS, ModBlocks.NETHER_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.QUARTZ_BLOCK, ModBlocks.QUARTZ_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.QUARTZ_BLOCK, ModBlocks.QUARTZ_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.QUARTZ_BLOCK, ModBlocks.QUARTZ_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.RED_SANDSTONE, ModBlocks.RED_SANDSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.RED_SANDSTONE, ModBlocks.RED_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.RED_SANDSTONE, ModBlocks.RED_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.CUT_RED_SANDSTONE, ModBlocks.CUT_RED_SANDSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.CUT_RED_SANDSTONE, ModBlocks.CUT_RED_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.CUT_RED_SANDSTONE, ModBlocks.CUT_RED_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.PURPUR_BLOCK, ModBlocks.PURPUR_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.PURPUR_BLOCK, ModBlocks.PURPUR_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.PURPUR_BLOCK, ModBlocks.PURPUR_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.POLISHED_GRANITE, ModBlocks.POLISHED_GRANITE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.POLISHED_GRANITE, ModBlocks.POLISHED_GRANITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.POLISHED_GRANITE, ModBlocks.POLISHED_GRANITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.SMOOTH_RED_SANDSTONE, ModBlocks.SMOOTH_RED_SANDSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.SMOOTH_RED_SANDSTONE, ModBlocks.SMOOTH_RED_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.SMOOTH_RED_SANDSTONE, ModBlocks.SMOOTH_RED_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.MOSSY_STONE_BRICKS, ModBlocks.MOSSY_STONE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.MOSSY_STONE_BRICKS, ModBlocks.MOSSY_STONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.MOSSY_STONE_BRICKS, ModBlocks.MOSSY_STONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.POLISHED_DIORITE, ModBlocks.POLISHED_DIORITE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.POLISHED_DIORITE, ModBlocks.POLISHED_DIORITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.POLISHED_DIORITE, ModBlocks.POLISHED_DIORITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.MOSSY_COBBLESTONE, ModBlocks.MOSSY_COBBLESTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.MOSSY_COBBLESTONE, ModBlocks.MOSSY_COBBLESTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.MOSSY_COBBLESTONE, ModBlocks.MOSSY_COBBLESTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.END_STONE_BRICKS, ModBlocks.END_STONE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.END_STONE_BRICKS, ModBlocks.END_STONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.END_STONE_BRICKS, ModBlocks.END_STONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.SMOOTH_SANDSTONE, ModBlocks.SMOOTH_SANDSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.SMOOTH_SANDSTONE, ModBlocks.SMOOTH_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.SMOOTH_SANDSTONE, ModBlocks.SMOOTH_SANDSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.SMOOTH_QUARTZ, ModBlocks.SMOOTH_QUARTZ_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.SMOOTH_QUARTZ, ModBlocks.SMOOTH_QUARTZ_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.SMOOTH_QUARTZ, ModBlocks.SMOOTH_QUARTZ_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.GRANITE, ModBlocks.GRANITE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.GRANITE, ModBlocks.GRANITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.GRANITE, ModBlocks.GRANITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.ANDESITE, ModBlocks.ANDESITE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.ANDESITE, ModBlocks.ANDESITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.ANDESITE, ModBlocks.ANDESITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.RED_NETHER_BRICKS, ModBlocks.RED_NETHER_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.RED_NETHER_BRICKS, ModBlocks.RED_NETHER_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.RED_NETHER_BRICKS, ModBlocks.RED_NETHER_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.POLISHED_ANDESITE, ModBlocks.POLISHED_ANDESITE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.POLISHED_ANDESITE, ModBlocks.POLISHED_ANDESITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.POLISHED_ANDESITE, ModBlocks.POLISHED_ANDESITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.DIORITE, ModBlocks.DIORITE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.DIORITE, ModBlocks.DIORITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.DIORITE, ModBlocks.DIORITE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.CRIMSON_PLANKS, ModBlocks.CRIMSON_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.CRIMSON_PLANKS, ModBlocks.CRIMSON_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.CRIMSON_PLANKS, ModBlocks.CRIMSON_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.WARPED_PLANKS, ModBlocks.WARPED_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.WARPED_PLANKS, ModBlocks.WARPED_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.WARPED_PLANKS, ModBlocks.WARPED_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.BLACKSTONE, ModBlocks.BLACKSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.BLACKSTONE, ModBlocks.BLACKSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.BLACKSTONE, ModBlocks.BLACKSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.POLISHED_BLACKSTONE_BRICKS, ModBlocks.POLISHED_BLACKSTONE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.POLISHED_BLACKSTONE_BRICKS, ModBlocks.POLISHED_BLACKSTONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.POLISHED_BLACKSTONE_BRICKS, ModBlocks.POLISHED_BLACKSTONE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.POLISHED_BLACKSTONE, ModBlocks.POLISHED_BLACKSTONE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.POLISHED_BLACKSTONE, ModBlocks.POLISHED_BLACKSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.POLISHED_BLACKSTONE, ModBlocks.POLISHED_BLACKSTONE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.OXIDIZED_CUT_COPPER, ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.OXIDIZED_CUT_COPPER, ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.OXIDIZED_CUT_COPPER, ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.WEATHERED_CUT_COPPER, ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.WEATHERED_CUT_COPPER, ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.WEATHERED_CUT_COPPER, ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.EXPOSED_CUT_COPPER, ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.EXPOSED_CUT_COPPER, ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.EXPOSED_CUT_COPPER, ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.CUT_COPPER, ModBlocks.CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.CUT_COPPER, ModBlocks.CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.CUT_COPPER, ModBlocks.CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.WAXED_OXIDIZED_CUT_COPPER, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.WAXED_OXIDIZED_CUT_COPPER, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.WAXED_OXIDIZED_CUT_COPPER, ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.WAXED_WEATHERED_CUT_COPPER, ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.WAXED_WEATHERED_CUT_COPPER, ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.WAXED_WEATHERED_CUT_COPPER, ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.WAXED_EXPOSED_CUT_COPPER, ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.WAXED_EXPOSED_CUT_COPPER, ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.WAXED_EXPOSED_CUT_COPPER, ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.WAXED_CUT_COPPER, ModBlocks.WAXED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.WAXED_CUT_COPPER, ModBlocks.WAXED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.WAXED_CUT_COPPER, ModBlocks.WAXED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.COBBLED_DEEPSLATE, ModBlocks.COBBLED_DEEPSLATE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.COBBLED_DEEPSLATE, ModBlocks.COBBLED_DEEPSLATE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.COBBLED_DEEPSLATE, ModBlocks.COBBLED_DEEPSLATE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.POLISHED_DEEPSLATE, ModBlocks.POLISHED_DEEPSLATE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.POLISHED_DEEPSLATE, ModBlocks.POLISHED_DEEPSLATE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.POLISHED_DEEPSLATE, ModBlocks.POLISHED_DEEPSLATE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.DEEPSLATE_TILES, ModBlocks.DEEPSLATE_TILE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.DEEPSLATE_TILES, ModBlocks.DEEPSLATE_TILE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.DEEPSLATE_TILES, ModBlocks.DEEPSLATE_TILE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.DEEPSLATE_BRICKS, ModBlocks.DEEPSLATE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
-            AddStairsInputRecipe(Items.DEEPSLATE_BRICKS, ModBlocks.DEEPSLATE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddUprightStairsInputRecipe(Items.DEEPSLATE_BRICKS, ModBlocks.DEEPSLATE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddSimple3HInputRecipe(Items.GLASS, ModBlocks.GLASS_SLAB.getItem(), "has_glass");
+            AddStairsInputRecipe(Items.GLASS, ModBlocks.GLASS_STAIRS.getItem(), "has_glass");
+            AddStairsInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_STAIRS.getItem(), "has_smooth_stone");
+            AddTransverseStairsInputRecipe(Items.SMOOTH_STONE, Items.SMOOTH_STONE_SLAB, ModBlocks.SMOOTH_STONE_TRANSVERSE_STAIRS.getItem(), "has_smooth_stone");
         }
         return craftingRecipes;
     }
@@ -168,8 +191,11 @@ public class ModRecipes {
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.DARK_PRISMARINE, RecipeCategory.MISC, ModBlocks.DARK_PRISMARINE_UPRIGHT_STAIRS.getItem(), 1));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.STONE, RecipeCategory.MISC, ModBlocks.STONE_UPRIGHT_SLAB.getItem(), 2));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.STONE, RecipeCategory.MISC, ModBlocks.STONE_UPRIGHT_STAIRS.getItem(), 1));
+            stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.SMOOTH_STONE, RecipeCategory.MISC, ModBlocks.SMOOTH_STONE_STAIRS.getItem(), 1));
+            stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.SMOOTH_STONE, RecipeCategory.MISC, ModBlocks.SMOOTH_STONE_TRANSVERSE_STAIRS.getItem(), 1));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.SMOOTH_STONE, RecipeCategory.MISC, ModBlocks.SMOOTH_STONE_UPRIGHT_SLAB.getItem(), 2));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.SMOOTH_STONE, RecipeCategory.MISC, ModBlocks.SMOOTH_STONE_UPRIGHT_STAIRS.getItem(), 1));
+            stoneCutterRecipes.add(new StoneCutterRecipeLib(ModBlocks.SMOOTH_STONE_STAIRS.getItem(), RecipeCategory.MISC, ModBlocks.SMOOTH_STONE_TRANSVERSE_STAIRS.getItem(), 1));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.SANDSTONE, RecipeCategory.MISC, ModBlocks.SANDSTONE_UPRIGHT_SLAB.getItem(), 2));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.SANDSTONE, RecipeCategory.MISC, ModBlocks.SANDSTONE_UPRIGHT_STAIRS.getItem(), 1));
             stoneCutterRecipes.add(new StoneCutterRecipeLib(Items.CUT_SANDSTONE, RecipeCategory.MISC, ModBlocks.CUT_SANDSTONE_UPRIGHT_SLAB.getItem(), 2));

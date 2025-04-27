@@ -55,6 +55,9 @@
     "uprightss:cobbled_deepslate_upright_stairs",
     "uprightss:polished_deepslate_upright_stairs",
     "uprightss:deepslate_tile_upright_stairs",
-    "uprightss:deepslate_brick_upright_stairs"
+    "uprightss:deepslate_brick_upright_stairs",
+    "uprightss:glass_stairs",
+    "uprightss:smooth_stone_stairs",
+    "uprightss:smooth_stone_transverse_stairs"
   ]
 }

@@ -1,10 +1,13 @@
-package cn.autosec.onecore.uss.definition;
+package cn.autosec.onecore.uss.definition.lib;
 
 import cn.autosec.onecore.uss.definition.registries.ModBlock;
 import cn.autosec.onecore.uss.definition.registries.ModItem;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ModelProvider;
+import net.minecraftforge.registries.ForgeRegistries;
 
-public final class BlockLib extends ModRegistryLib<Block> {
+public class BlockLib extends ModRegistryLib<Block> {
     public ItemLib itemLib;
     public Block block;
     public boolean isSimpleCube = true;
@@ -24,6 +27,9 @@ public final class BlockLib extends ModRegistryLib<Block> {
     public float minDrop = 1f;
     public float maxDrop = 1f;
     public boolean applyToFortune = false;
+    public ResourceLocation texture;
+    public boolean hasSideTexture = false;
+    public ResourceLocation sideTexture = null;
     public BlockLib(ModBlock modBlock, String name) {
         super(modBlock, name);
         itemLib = new ItemLib(modBlock.selfModItem(), name, true);
@@ -81,6 +87,36 @@ public final class BlockLib extends ModRegistryLib<Block> {
 
     public BlockLib wooden() {
         this.isWooden = true;
+        return this;
+    }
+
+    public BlockLib texture(Block texture) {
+        this.hasSideTexture = false;
+        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(texture);
+        this.texture = new ResourceLocation(name.getNamespace(),
+                ModelProvider.BLOCK_FOLDER + "/" + name.getPath());
+        return this;
+    }
+
+    public BlockLib texture(Block texture, Block sideTexture) {
+        this.hasSideTexture = true;
+        ResourceLocation name1 = ForgeRegistries.BLOCKS.getKey(texture);
+        this.texture = new ResourceLocation(name1.getNamespace(),
+                ModelProvider.BLOCK_FOLDER + "/" + name1.getPath());
+        ResourceLocation name2 = ForgeRegistries.BLOCKS.getKey(sideTexture);
+        this.sideTexture = new ResourceLocation(name2.getNamespace(),
+                ModelProvider.BLOCK_FOLDER + "/" + name2.getPath());
+        return this;
+    }
+
+    public BlockLib texture(Block texture, Block sideTexture, String suffix) {
+        this.hasSideTexture = true;
+        ResourceLocation name1 = ForgeRegistries.BLOCKS.getKey(texture);
+        this.texture = new ResourceLocation(name1.getNamespace(),
+                ModelProvider.BLOCK_FOLDER + "/" + name1.getPath());
+        ResourceLocation name2 = ForgeRegistries.BLOCKS.getKey(sideTexture);
+        this.sideTexture = new ResourceLocation(name2.getNamespace(),
+                ModelProvider.BLOCK_FOLDER + "/" + name2.getPath() + suffix);
         return this;
     }
 

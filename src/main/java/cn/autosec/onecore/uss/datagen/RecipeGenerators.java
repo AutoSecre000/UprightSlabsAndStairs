@@ -1,6 +1,6 @@
 package cn.autosec.onecore.uss.datagen;
 
-import cn.autosec.onecore.uss.definition.StoneCutterRecipeLib;
+import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import cn.autosec.onecore.uss.registry.ModRecipes;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;

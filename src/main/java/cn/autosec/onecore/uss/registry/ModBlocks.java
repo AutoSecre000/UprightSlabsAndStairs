@@ -2,14 +2,18 @@ package cn.autosec.onecore.uss.registry;
 
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.Utils;
-import cn.autosec.onecore.uss.definition.ItemLib;
+import cn.autosec.onecore.uss.definition.custom.block.normal.glass.GlassStairsBlock;
+import cn.autosec.onecore.uss.definition.custom.block.normal.stone.stone.SmoothStoneStairsBlock;
+import cn.autosec.onecore.uss.definition.custom.block.normal.stone.stone.SmoothStoneTransverseStairsBlock;
+import cn.autosec.onecore.uss.definition.custom.block.upright.stone.*;
+import cn.autosec.onecore.uss.definition.lib.ItemLib;
 import cn.autosec.onecore.uss.definition.custom.CustomBlockItem;
 import cn.autosec.onecore.uss.definition.custom.block.upright.*;
 import cn.autosec.onecore.uss.definition.custom.block.upright.copper.*;
-import cn.autosec.onecore.uss.definition.custom.block.upright.stone.*;
+import cn.autosec.onecore.uss.definition.custom.block.normal.glass.GlassSlabBlock;
 import cn.autosec.onecore.uss.definition.custom.block.upright.wooden.*;
 import cn.autosec.onecore.uss.definition.registries.ModBlock;
-import cn.autosec.onecore.uss.definition.BlockLib;
+import cn.autosec.onecore.uss.definition.lib.BlockLib;
 import cn.autosec.onecore.uss.definition.registries.ModItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +21,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -37,6 +43,30 @@ public class ModBlocks {
             EnumProperty.create("type", ModStairTypes.class);
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OneCore.MODID);
+
+    private static ModBlock registerSlabBlock(String name, Supplier<SlabBlock> sup) {
+        RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
+        RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
+                () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
+        TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
+                new ResourceLocation(OneCore.MODID, name + "_tag"));
+        TagKey<Item> itemTagKey = TagKey.create(Registries.ITEM,
+                new ResourceLocation(OneCore.MODID, name + "_tag"));
+        ModItem modItem = new ModItem(itemRegistryObject, itemTagKey);
+        return new ModBlock(blockRegistryObject, modItem, blockTagKey);
+    }
+
+    private static ModBlock registerStairsBlock(String name, Supplier<StairBlock> sup) {
+        RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
+        RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
+                () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
+        TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
+                new ResourceLocation(OneCore.MODID, name + "_tag"));
+        TagKey<Item> itemTagKey = TagKey.create(Registries.ITEM,
+                new ResourceLocation(OneCore.MODID, name + "_tag"));
+        ModItem modItem = new ModItem(itemRegistryObject, itemTagKey);
+        return new ModBlock(blockRegistryObject, modItem, blockTagKey);
+    }
 
     private static ModBlock registerUprightSlabBlock(String name, Supplier<UprightSlabBlock> sup) {
         RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
@@ -176,6 +206,11 @@ public class ModBlocks {
     public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_brick_upright_slab", () -> new DeepslateBrickUprightSlabBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_brick_upright_stairs", () -> new DeepslateBrickUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
 
+    public static final ModBlock GLASS_SLAB = registerSlabBlock("glass_slab", () -> new GlassSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassSlabBlock::never).isRedstoneConductor(GlassSlabBlock::never).isSuffocating(GlassSlabBlock::never).isViewBlocking(GlassSlabBlock::never)));
+    public static final ModBlock GLASS_STAIRS = registerStairsBlock("glass_stairs", () -> new GlassStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassStairsBlock::never).isRedstoneConductor(GlassStairsBlock::never).isSuffocating(GlassStairsBlock::never).isViewBlocking(GlassStairsBlock::never)));
+    public static final ModBlock SMOOTH_STONE_STAIRS = registerStairsBlock("smooth_stone_stairs", () -> new SmoothStoneStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
+    public static final ModBlock SMOOTH_STONE_TRANSVERSE_STAIRS = registerStairsBlock("smooth_stone_transverse_stairs", () -> new SmoothStoneTransverseStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
+
     private static final List<BlockLib> blockLib = new ArrayList<>();
 
     public static List<BlockLib> getBlockLib() {
@@ -292,6 +327,11 @@ public class ModBlocks {
             blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_STAIRS, "deepslate_tile_upright_stairs").locale("Deepslate Tile Upright Stairs", "深板岩瓦楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_SLAB, "deepslate_brick_upright_slab").locale("Deepslate Brick Upright Slab", "深板岩砖台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_STAIRS, "deepslate_brick_upright_stairs").locale("Deepslate Brick Upright Stairs", "深板岩砖楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+
+            blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(SMOOTH_STONE_STAIRS, "smooth_stone_stairs").locale("Smooth Stone Stairs", "平滑石楼梯").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.SMOOTH_STONE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(SMOOTH_STONE_TRANSVERSE_STAIRS, "smooth_stone_transverse_stairs").locale("Smooth Stone Transverse Stairs", "横纹平滑石楼梯").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().texture(Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE_SLAB, "_side").creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
         }
         return blockLib;
     }

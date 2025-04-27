@@ -1,7 +1,7 @@
 package cn.autosec.onecore.uss.datagen;
 
 import cn.autosec.onecore.uss.OneCore;
-import cn.autosec.onecore.uss.definition.BlockLib;
+import cn.autosec.onecore.uss.definition.lib.BlockLib;
 import cn.autosec.onecore.uss.registry.ModBlocks;
 import cn.autosec.onecore.uss.registry.ModBlockTags;
 import net.minecraft.core.HolderLookup;

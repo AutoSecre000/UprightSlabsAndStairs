@@ -1,4 +1,4 @@
-package cn.autosec.onecore.uss.definition;
+package cn.autosec.onecore.uss.definition.lib;
 
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.world.item.Item;
