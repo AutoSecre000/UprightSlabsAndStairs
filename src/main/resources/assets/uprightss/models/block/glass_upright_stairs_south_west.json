@@ -3,6 +3,7 @@
 	"textures": {
 		"outer": "minecraft:block/glass",
 		"inner": "uprightss:block/glass_upright_slab_left_right",
-		"side": "uprightss:block/glass_upright_stairs_south_west"
+		"top": "uprightss:block/glass_upright_slab_top_bottom",
+		"bottom": "uprightss:block/glass_upright_slab_top_bottom"
 	}
 }

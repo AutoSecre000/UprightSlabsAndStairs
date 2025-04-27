@@ -5,6 +5,8 @@ import cn.autosec.onecore.uss.Utils;
 import cn.autosec.onecore.uss.definition.custom.block.normal.glass.GlassStairsBlock;
 import cn.autosec.onecore.uss.definition.custom.block.normal.stone.SmoothStoneStairsBlock;
 import cn.autosec.onecore.uss.definition.custom.block.normal.stone.SmoothStoneTransverseStairsBlock;
+import cn.autosec.onecore.uss.definition.custom.block.upright.glass.GlassUprightSlabBlock;
+import cn.autosec.onecore.uss.definition.custom.block.upright.glass.GlassUprightStairsBlock;
 import cn.autosec.onecore.uss.definition.custom.block.upright.stone.*;
 import cn.autosec.onecore.uss.definition.lib.ItemLib;
 import cn.autosec.onecore.uss.definition.custom.CustomBlockItem;
@@ -205,6 +207,8 @@ public class ModBlocks {
     public static final ModBlock DEEPSLATE_TILE_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_tile_upright_stairs", () -> new DeepslateTileUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_brick_upright_slab", () -> new DeepslateBrickUprightSlabBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_brick_upright_stairs", () -> new DeepslateBrickUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock GLASS_UPRIGHT_SLAB = registerUprightSlabBlock("glass_upright_slab", () -> new GlassUprightSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassSlabBlock::never).isRedstoneConductor(GlassSlabBlock::never).isSuffocating(GlassSlabBlock::never).isViewBlocking(GlassSlabBlock::never)));
+    public static final ModBlock GLASS_UPRIGHT_STAIRS = registerUprightStairsBlock("glass_upright_stairs", () -> new GlassUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassStairsBlock::never).isRedstoneConductor(GlassStairsBlock::never).isSuffocating(GlassStairsBlock::never).isViewBlocking(GlassStairsBlock::never)));
 
     public static final ModBlock GLASS_SLAB = registerSlabBlock("glass_slab", () -> new GlassSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassSlabBlock::never).isRedstoneConductor(GlassSlabBlock::never).isSuffocating(GlassSlabBlock::never).isViewBlocking(GlassSlabBlock::never)));
     public static final ModBlock GLASS_STAIRS = registerStairsBlock("glass_stairs", () -> new GlassStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassStairsBlock::never).isRedstoneConductor(GlassStairsBlock::never).isSuffocating(GlassStairsBlock::never).isViewBlocking(GlassStairsBlock::never)));
@@ -327,6 +331,8 @@ public class ModBlocks {
             blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_STAIRS, "deepslate_tile_upright_stairs").locale("Deepslate Tile Upright Stairs", "深板岩瓦楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_SLAB, "deepslate_brick_upright_slab").locale("Deepslate Brick Upright Slab", "深板岩砖台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_STAIRS, "deepslate_brick_upright_stairs").locale("Deepslate Brick Upright Stairs", "深板岩砖楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(GLASS_UPRIGHT_SLAB, "glass_upright_slab").locale("Glass Upright Slab", "玻璃台阶（竖直）").slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
 
             blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));

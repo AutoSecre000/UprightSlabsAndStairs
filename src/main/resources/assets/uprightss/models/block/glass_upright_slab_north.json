@@ -1,23 +1,10 @@
 {
-	"parent": "block/block",
+	"parent": "uprightss:block/upright_slab_north",
 	"textures": {
-		"0": "minecraft:block/glass",
-		"1": "uprightss:block/glass_upright_slab_left_right",
-		"2": "uprightss:block/glass_upright_slab_top_bottom",
-		"particle": "minecraft:block/glass"
-	},
-	"elements": [
-		{
-			"from": [0, 0, 0],
-			"to": [16, 16, 8],
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#0", "cullface": "north"},
-				"east": {"uv": [0, 0, 8, 16], "texture": "#1", "cullface": "east"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
-				"west": {"uv": [0, 0, 8, 16], "texture": "#1", "cullface": "west"},
-				"up": {"uv": [0, 0, 16, 8], "texture": "#2", "cullface": "up"},
-				"down": {"uv": [0, 0, 16, 8], "texture": "#2", "cullface": "down"}
-			}
-		}
-	]
+		"front": "minecraft:block/glass",
+		"back": "minecraft:block/glass",
+		"side": "uprightss:block/glass_upright_slab_left_right",
+		"top": "uprightss:block/glass_upright_slab_top_bottom",
+		"bottom": "uprightss:block/glass_upright_slab_top_bottom"
+	}
 }

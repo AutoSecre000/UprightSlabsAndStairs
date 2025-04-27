@@ -171,6 +171,8 @@ public class ModRecipes {
             AddUprightStairsInputRecipe(Items.DEEPSLATE_TILES, ModBlocks.DEEPSLATE_TILE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3VInputRecipe(Items.DEEPSLATE_BRICKS, ModBlocks.DEEPSLATE_BRICK_UPRIGHT_SLAB.getItem(), "has_upright_slab");
             AddUprightStairsInputRecipe(Items.DEEPSLATE_BRICKS, ModBlocks.DEEPSLATE_BRICK_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddSimple3VInputRecipe(Items.GLASS, ModBlocks.GLASS_UPRIGHT_SLAB.getItem(), "has_upright_slab");
+            AddUprightStairsInputRecipe(Items.GLASS, ModBlocks.GLASS_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
             AddSimple3HInputRecipe(Items.GLASS, ModBlocks.GLASS_SLAB.getItem(), "has_glass");
             AddStairsInputRecipe(Items.GLASS, ModBlocks.GLASS_STAIRS.getItem(), "has_glass");
             AddStairsInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_STAIRS.getItem(), "has_smooth_stone");
