@@ -30,7 +30,7 @@ public class LanguageGenerators extends LanguageProvider {
                 String descriptionLocaleEn = blockLocale.itemLib.descriptionLocaleEn.isEmpty() ?
                         Utils.ONECORE_DESCRIPTION_DETAIL_EN : blockLocale.itemLib.descriptionLocaleEn;
                 String descriptionLocaleCn = blockLocale.itemLib.descriptionLocaleCn.isEmpty() ?
-                        Utils.ONECORE_DESCRIPTION_DETAIL_CN : blockLocale.itemLib.descriptionLocaleCn;;
+                        Utils.ONECORE_DESCRIPTION_DETAIL_CN : blockLocale.itemLib.descriptionLocaleCn;
                 addLocale(Utils.ONECORE_DESCRIPTION_DETAIL_HEAD_TAG + blockLocale.itemLib.modRegistry.get().getDescriptionId(),
                         descriptionLocaleEn, descriptionLocaleCn);
             }
