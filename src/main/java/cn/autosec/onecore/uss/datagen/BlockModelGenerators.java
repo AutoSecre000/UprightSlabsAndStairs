@@ -3,14 +3,18 @@ package cn.autosec.onecore.uss.datagen;
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.definition.lib.BlockLib;
 import cn.autosec.onecore.uss.registry.ModBlocks;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.properties.Half;
+import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ModelProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -21,31 +25,80 @@ public class BlockModelGenerators extends BlockStateProvider {
         super(output, OneCore.MODID, existingFileHelper);
     }
 
-    public ResourceLocation blockTexture(Block block, String suffix) {
-        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(block);
-        return new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/" + name.getPath() + suffix);
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
+    }
+
+    private String name(Block block) {
+        return key(block).getPath();
+    }
+
+    private void slabBlock(Block block, ResourceLocation doubleSlab, ResourceLocation texture) {
+        slabBlock(block, doubleSlab, texture, texture, texture);
+    }
+
+    private void slabBlock(Block block, ResourceLocation doubleSlab, ResourceLocation side,
+                          ResourceLocation bottom, ResourceLocation top) {
+        ModelFile bottomFile = models().slab(name(block), side, bottom, top);
+        ModelFile topFIle = models().slabTop(name(block) + "_top", side, bottom, top);
+        ModelFile doubleSlabFile = models().getExistingFile(doubleSlab);
+        getVariantBuilder(block)
+                .partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).addModels(new ConfiguredModel(bottomFile))
+                .partialState().with(SlabBlock.TYPE, SlabType.TOP).addModels(new ConfiguredModel(topFIle))
+                .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).addModels(new ConfiguredModel(doubleSlabFile));
+    }
+
+    private void stairsBlock(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
+        stairsBlockInternal(block, key(block).toString(), side, bottom, top);
+    }
+
+    private void stairsBlockInternal(Block block, String baseName, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
+        ModelFile stairs = models().stairs(baseName, side, bottom, top);
+        ModelFile stairsInner = models().stairsInner(baseName + "_inner", side, bottom, top);
+        ModelFile stairsOuter = models().stairsOuter(baseName + "_outer", side, bottom, top);
+        stairsBlock(block, stairs, stairsInner, stairsOuter);
+    }
+
+    private void stairsBlock(Block block, ModelFile stairs, ModelFile stairsInner, ModelFile stairsOuter) {
+        getVariantBuilder(block)
+                .forAllStatesExcept(state -> {
+                    Direction facing = state.getValue(StairBlock.FACING);
+                    Half half = state.getValue(StairBlock.HALF);
+                    StairsShape shape = state.getValue(StairBlock.SHAPE);
+                    int yRot = (int) facing.getClockWise().toYRot();
+                    if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) {
+                        yRot += 270; // Left facing stairs are rotated 90 degrees clockwise
+                    }
+                    if (shape != StairsShape.STRAIGHT && half == Half.TOP) {
+                        yRot += 90; // Top stairs are rotated 90 degrees clockwise
+                    }
+                    yRot %= 360;
+                    boolean uvlock = yRot != 0 || half == Half.TOP; // Don't set uvlock for states that have no rotation
+                    return ConfiguredModel.builder()
+                            .modelFile(shape == StairsShape.STRAIGHT ? stairs : shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT ? stairsInner : stairsOuter)
+                            .rotationX(half == Half.BOTTOM ? 0 : 180)
+                            .rotationY(yRot)
+                            .uvLock(uvlock)
+                            .build();
+                }, StairBlock.WATERLOGGED);
     }
 
     @Override
     protected void registerStatesAndModels() {
         List<BlockLib> blockModels = ModBlocks.getBlockLib();
-        slabBlock((SlabBlock) ModBlocks.GLASS_SLAB.get(), blockTexture(Blocks.GLASS), blockTexture(Blocks.GLASS));
-        stairsBlock((StairBlock) ModBlocks.GLASS_STAIRS.get(), blockTexture(Blocks.GLASS), blockTexture(Blocks.GLASS),
-                blockTexture(Blocks.GLASS));
-        stairsBlock((StairBlock) ModBlocks.SMOOTH_STONE_STAIRS.get(), blockTexture(Blocks.SMOOTH_STONE),
-                blockTexture(Blocks.SMOOTH_STONE), blockTexture(Blocks.SMOOTH_STONE));
-        stairsBlock((StairBlock) ModBlocks.SMOOTH_STONE_TRANSVERSE_STAIRS.get(),
-                blockTexture(Blocks.SMOOTH_STONE_SLAB, "_side"), blockTexture(Blocks.SMOOTH_STONE),
-                blockTexture(Blocks.SMOOTH_STONE));
         if (blockModels != null) {
             for (BlockLib blockLib : blockModels) {
                 OneCore.LOGGER.info("[BlockModelGenerators:registerStatesAndModels] blockLib.name = {}", blockLib.name);
                 if (blockLib.isSimpleCube) {
                     if (blockLib.isSlab) {
+                        slabBlock(blockLib.modRegistry.get(), blockLib.texture, blockLib.texture);
                         simpleBlockItem(blockLib.modRegistry.get(), models().slab(blockLib.name,
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture,
                                 blockLib.texture, blockLib.texture));
                     } else if (blockLib.isStairs) {
+                        stairsBlock(blockLib.modRegistry.get(),
+                                blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture, blockLib.texture,
+                                blockLib.texture);
                         simpleBlockItem(blockLib.modRegistry.get(), models().stairs(blockLib.name,
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture,
                                 blockLib.texture, blockLib.texture));
