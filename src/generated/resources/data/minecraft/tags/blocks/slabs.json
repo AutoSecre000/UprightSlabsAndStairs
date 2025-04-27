@@ -1,8 +1,5 @@
 {
   "values": [
-    "uprightss:prismarine_upright_slab",
-    "uprightss:prismarine_brick_upright_slab",
-    "uprightss:dark_prismarine_upright_slab",
     "uprightss:oak_upright_slab",
     "uprightss:spruce_upright_slab",
     "uprightss:birch_upright_slab",
@@ -22,6 +19,9 @@
     "uprightss:stone_brick_upright_slab",
     "uprightss:mud_brick_upright_slab",
     "uprightss:nether_brick_upright_slab",
+    "uprightss:prismarine_upright_slab",
+    "uprightss:prismarine_brick_upright_slab",
+    "uprightss:dark_prismarine_upright_slab",
     "uprightss:quartz_upright_slab",
     "uprightss:red_sandstone_upright_slab",
     "uprightss:cut_red_sandstone_upright_slab",

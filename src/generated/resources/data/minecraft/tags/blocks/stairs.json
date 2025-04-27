@@ -1,8 +1,5 @@
 {
   "values": [
-    "uprightss:prismarine_upright_stairs",
-    "uprightss:prismarine_brick_upright_stairs",
-    "uprightss:dark_prismarine_upright_stairs",
     "uprightss:oak_upright_stairs",
     "uprightss:spruce_upright_stairs",
     "uprightss:birch_upright_stairs",
@@ -22,6 +19,9 @@
     "uprightss:stone_brick_upright_stairs",
     "uprightss:mud_brick_upright_stairs",
     "uprightss:nether_brick_upright_stairs",
+    "uprightss:prismarine_upright_stairs",
+    "uprightss:prismarine_brick_upright_stairs",
+    "uprightss:dark_prismarine_upright_stairs",
     "uprightss:quartz_upright_stairs",
     "uprightss:red_sandstone_upright_stairs",
     "uprightss:cut_red_sandstone_upright_stairs",
