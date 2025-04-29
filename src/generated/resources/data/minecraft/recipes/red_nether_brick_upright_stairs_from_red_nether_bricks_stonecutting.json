@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:red_nether_bricks"
-  },
-  "result": "uprightss:red_nether_brick_upright_stairs"
-}

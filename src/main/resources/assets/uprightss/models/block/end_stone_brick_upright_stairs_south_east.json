@@ -1,9 +1,0 @@
-{
-  "parent": "uprightss:block/upright_stairs_south_east",
-  "textures": {
-    "outer": "minecraft:block/end_stone_bricks",
-    "inner": "minecraft:block/end_stone_bricks",
-    "top": "minecraft:block/end_stone_bricks",
-    "bottom": "minecraft:block/end_stone_bricks"
-  }
-}

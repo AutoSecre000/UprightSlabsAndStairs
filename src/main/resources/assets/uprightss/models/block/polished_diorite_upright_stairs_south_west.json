@@ -1,9 +1,0 @@
-{
-  "parent": "uprightss:block/upright_stairs_south_west",
-  "textures": {
-    "outer": "minecraft:block/polished_diorite",
-    "inner": "minecraft:block/polished_diorite",
-    "top": "minecraft:block/polished_diorite",
-    "bottom": "minecraft:block/polished_diorite"
-  }
-}

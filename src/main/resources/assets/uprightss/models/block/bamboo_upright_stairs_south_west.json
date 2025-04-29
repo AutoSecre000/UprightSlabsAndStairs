@@ -1,9 +1,0 @@
-{
-  "parent": "uprightss:block/upright_stairs_south_west",
-  "textures": {
-    "outer": "minecraft:block/bamboo_block",
-    "inner": "minecraft:block/bamboo_block",
-    "top": "minecraft:block/bamboo_block",
-    "bottom": "minecraft:block/bamboo_block"
-  }
-}
