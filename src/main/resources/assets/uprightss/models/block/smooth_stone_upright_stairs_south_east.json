@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/smooth_stone",
+    "inner": "minecraft:block/smooth_stone",
+    "top": "minecraft:block/smooth_stone",
+    "bottom": "minecraft:block/smooth_stone"
+  }
+}

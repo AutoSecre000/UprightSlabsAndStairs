@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "uprightss:mud_brick_upright_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_upright_slab": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:mud_bricks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_upright_slab"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "uprightss:mud_brick_upright_slab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

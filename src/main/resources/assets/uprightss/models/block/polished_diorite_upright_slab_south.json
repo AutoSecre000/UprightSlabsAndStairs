@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_south",
+  "textures": {
+    "front": "minecraft:block/polished_diorite",
+    "back": "minecraft:block/polished_diorite",
+    "side": "minecraft:block/polished_diorite",
+    "top": "minecraft:block/polished_diorite",
+    "bottom": "minecraft:block/polished_diorite"
+  }
+}

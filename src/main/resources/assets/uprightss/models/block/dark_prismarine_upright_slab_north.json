@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/dark_prismarine",
+    "back": "minecraft:block/dark_prismarine",
+    "side": "minecraft:block/dark_prismarine",
+    "top": "minecraft:block/dark_prismarine",
+    "bottom": "minecraft:block/dark_prismarine"
+  }
+}

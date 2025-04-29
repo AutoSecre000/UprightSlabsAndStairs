@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/red_sandstone_top",
+    "inner": "minecraft:block/red_sandstone_top",
+    "top": "minecraft:block/red_sandstone_top",
+    "bottom": "minecraft:block/red_sandstone_top"
+  }
+}

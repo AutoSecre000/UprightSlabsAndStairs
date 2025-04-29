@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "type=north": {
+      "model": "uprightss:block/cut_red_sandstone_upright_slab_north"
+    },
+    "type=east": {
+      "model": "uprightss:block/cut_red_sandstone_upright_slab_east"
+    },
+    "type=west": {
+      "model": "uprightss:block/cut_red_sandstone_upright_slab_west"
+    },
+    "type=south": {
+      "model": "uprightss:block/cut_red_sandstone_upright_slab_south"
+    },
+    "type=double": {
+      "model": "minecraft:block/cut_red_sandstone"
+    }
+  }
+}

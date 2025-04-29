@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/polished_deepslate",
+    "back": "minecraft:block/polished_deepslate",
+    "side": "minecraft:block/polished_deepslate",
+    "top": "minecraft:block/polished_deepslate",
+    "bottom": "minecraft:block/polished_deepslate"
+  }
+}

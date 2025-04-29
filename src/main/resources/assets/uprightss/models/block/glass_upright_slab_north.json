@@ -1,0 +1,11 @@
+{
+	"parent": "uprightss:block/upright_slab_north",
+	"render_type": "minecraft:cutout",
+	"textures": {
+		"front": "minecraft:block/glass",
+		"back": "minecraft:block/glass",
+		"side": "uprightss:block/glass_upright_slab_left_right",
+		"top": "uprightss:block/glass_upright_slab_top_bottom",
+		"bottom": "uprightss:block/glass_upright_slab_top_bottom"
+	}
+}

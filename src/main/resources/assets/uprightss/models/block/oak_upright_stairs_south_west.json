@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_west",
+  "textures": {
+    "outer": "minecraft:block/oak_planks",
+    "inner": "minecraft:block/oak_planks",
+    "top": "minecraft:block/oak_planks",
+    "bottom": "minecraft:block/oak_planks"
+  }
+}

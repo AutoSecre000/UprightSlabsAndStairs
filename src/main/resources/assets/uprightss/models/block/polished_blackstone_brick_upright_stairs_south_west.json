@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_west",
+  "textures": {
+    "outer": "minecraft:block/polished_blackstone_bricks",
+    "inner": "minecraft:block/polished_blackstone_bricks",
+    "top": "minecraft:block/polished_blackstone_bricks",
+    "bottom": "minecraft:block/polished_blackstone_bricks"
+  }
+}
