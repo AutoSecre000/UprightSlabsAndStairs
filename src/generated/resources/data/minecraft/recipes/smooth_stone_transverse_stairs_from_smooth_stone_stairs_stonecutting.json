@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "uprightss:smooth_stone_stairs"
-  },
-  "result": "uprightss:smooth_stone_transverse_stairs"
-}

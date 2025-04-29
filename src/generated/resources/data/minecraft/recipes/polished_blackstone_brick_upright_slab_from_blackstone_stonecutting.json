@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:blackstone"
-  },
-  "result": "uprightss:polished_blackstone_brick_upright_slab"
-}

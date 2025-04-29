@@ -1,9 +1,0 @@
-{
-  "parent": "uprightss:block/upright_stairs_south_west",
-  "textures": {
-    "outer": "minecraft:block/crimson_planks",
-    "inner": "minecraft:block/crimson_planks",
-    "top": "minecraft:block/crimson_planks",
-    "bottom": "minecraft:block/crimson_planks"
-  }
-}
