@@ -1,5 +1,6 @@
 {
 	"parent": "uprightss:block/upright_stairs_north_east",
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"outer": "minecraft:block/glass",
 		"inner": "uprightss:block/glass_upright_slab_left_right",

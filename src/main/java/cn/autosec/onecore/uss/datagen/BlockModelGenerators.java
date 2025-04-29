@@ -33,14 +33,14 @@ public class BlockModelGenerators extends BlockStateProvider {
         return key(block).getPath();
     }
 
-    private void slabBlock(Block block, ResourceLocation doubleSlab, ResourceLocation texture) {
-        slabBlock(block, doubleSlab, texture, texture, texture);
+    private void slabBlock(Block block, ResourceLocation doubleSlab, ResourceLocation texture, String renderType) {
+        slabBlock(block, doubleSlab, texture, texture, texture, renderType);
     }
 
     private void slabBlock(Block block, ResourceLocation doubleSlab, ResourceLocation side,
-                          ResourceLocation bottom, ResourceLocation top) {
-        ModelFile bottomFile = models().slab(name(block), side, bottom, top);
-        ModelFile topFIle = models().slabTop(name(block) + "_top", side, bottom, top);
+                          ResourceLocation bottom, ResourceLocation top, String renderType) {
+        ModelFile bottomFile = models().slab(name(block), side, bottom, top).renderType(renderType);
+        ModelFile topFIle = models().slabTop(name(block) + "_top", side, bottom, top).renderType(renderType);
         ModelFile doubleSlabFile = models().getExistingFile(doubleSlab);
         getVariantBuilder(block)
                 .partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).addModels(new ConfiguredModel(bottomFile))
@@ -48,14 +48,16 @@ public class BlockModelGenerators extends BlockStateProvider {
                 .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).addModels(new ConfiguredModel(doubleSlabFile));
     }
 
-    private void stairsBlock(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
-        stairsBlockInternal(block, key(block).toString(), side, bottom, top);
+    private void stairsBlock(Block block, ResourceLocation side, ResourceLocation bottom, ResourceLocation top,
+                             String renderType) {
+        stairsBlockInternal(block, key(block).toString(), side, bottom, top, renderType);
     }
 
-    private void stairsBlockInternal(Block block, String baseName, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
-        ModelFile stairs = models().stairs(baseName, side, bottom, top);
-        ModelFile stairsInner = models().stairsInner(baseName + "_inner", side, bottom, top);
-        ModelFile stairsOuter = models().stairsOuter(baseName + "_outer", side, bottom, top);
+    private void stairsBlockInternal(Block block, String baseName, ResourceLocation side, ResourceLocation bottom,
+                                     ResourceLocation top, String renderType) {
+        ModelFile stairs = models().stairs(baseName, side, bottom, top).renderType(renderType);
+        ModelFile stairsInner = models().stairsInner(baseName + "_inner", side, bottom, top).renderType(renderType);
+        ModelFile stairsOuter = models().stairsOuter(baseName + "_outer", side, bottom, top).renderType(renderType);
         stairsBlock(block, stairs, stairsInner, stairsOuter);
     }
 
@@ -91,14 +93,15 @@ public class BlockModelGenerators extends BlockStateProvider {
                 OneCore.LOGGER.info("[BlockModelGenerators:registerStatesAndModels] blockLib.name = {}", blockLib.name);
                 if (blockLib.isSimpleCube) {
                     if (blockLib.isSlab) {
-                        slabBlock(blockLib.modRegistry.get(), blockLib.texture, blockLib.texture);
+                        slabBlock(blockLib.modRegistry.get(), blockLib.texture, blockLib.texture,
+                                blockLib.isGlass ? "cutout" : "solid");
                         simpleBlockItem(blockLib.modRegistry.get(), models().slab(blockLib.name,
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture,
                                 blockLib.texture, blockLib.texture));
                     } else if (blockLib.isStairs) {
                         stairsBlock(blockLib.modRegistry.get(),
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture, blockLib.texture,
-                                blockLib.texture);
+                                blockLib.texture, blockLib.isGlass ? "cutout" : "solid");
                         simpleBlockItem(blockLib.modRegistry.get(), models().stairs(blockLib.name,
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture,
                                 blockLib.texture, blockLib.texture));

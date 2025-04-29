@@ -207,11 +207,11 @@ public class ModBlocks {
     public static final ModBlock DEEPSLATE_TILE_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_tile_upright_stairs", () -> new DeepslateTileUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_TILE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_brick_upright_slab", () -> new DeepslateBrickUprightSlabBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_brick_upright_stairs", () -> new DeepslateBrickUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock GLASS_UPRIGHT_SLAB = registerUprightSlabBlock("glass_upright_slab", () -> new GlassUprightSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassSlabBlock::never).isRedstoneConductor(GlassSlabBlock::never).isSuffocating(GlassSlabBlock::never).isViewBlocking(GlassSlabBlock::never)));
-    public static final ModBlock GLASS_UPRIGHT_STAIRS = registerUprightStairsBlock("glass_upright_stairs", () -> new GlassUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassStairsBlock::never).isRedstoneConductor(GlassStairsBlock::never).isSuffocating(GlassStairsBlock::never).isViewBlocking(GlassStairsBlock::never)));
+    public static final ModBlock GLASS_UPRIGHT_SLAB = registerUprightSlabBlock("glass_upright_slab", () -> new GlassUprightSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops()));
+    public static final ModBlock GLASS_UPRIGHT_STAIRS = registerUprightStairsBlock("glass_upright_stairs", () -> new GlassUprightStairsBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops()));
 
-    public static final ModBlock GLASS_SLAB = registerSlabBlock("glass_slab", () -> new GlassSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassSlabBlock::never).isRedstoneConductor(GlassSlabBlock::never).isSuffocating(GlassSlabBlock::never).isViewBlocking(GlassSlabBlock::never)));
-    public static final ModBlock GLASS_STAIRS = registerStairsBlock("glass_stairs", () -> new GlassStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GLASS).noOcclusion().isValidSpawn(GlassStairsBlock::never).isRedstoneConductor(GlassStairsBlock::never).isSuffocating(GlassStairsBlock::never).isViewBlocking(GlassStairsBlock::never)));
+    public static final ModBlock GLASS_SLAB = registerSlabBlock("glass_slab", () -> new GlassSlabBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops()));
+    public static final ModBlock GLASS_STAIRS = registerStairsBlock("glass_stairs", () -> new GlassStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops()));
     public static final ModBlock SMOOTH_STONE_STAIRS = registerStairsBlock("smooth_stone_stairs", () -> new SmoothStoneStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
     public static final ModBlock SMOOTH_STONE_TRANSVERSE_STAIRS = registerStairsBlock("smooth_stone_transverse_stairs", () -> new SmoothStoneTransverseStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
 
@@ -334,8 +334,8 @@ public class ModBlocks {
             blockLib.add(new BlockLib(GLASS_UPRIGHT_SLAB, "glass_upright_slab").locale("Glass Upright Slab", "玻璃台阶（竖直）").slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
 
-            blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
-            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().translucent().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().translucent().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(SMOOTH_STONE_STAIRS, "smooth_stone_stairs").locale("Smooth Stone Stairs", "平滑石楼梯").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.SMOOTH_STONE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(SMOOTH_STONE_TRANSVERSE_STAIRS, "smooth_stone_transverse_stairs").locale("Smooth Stone Transverse Stairs", "横纹平滑石楼梯").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().texture(Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE_SLAB, "_side").creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
         }

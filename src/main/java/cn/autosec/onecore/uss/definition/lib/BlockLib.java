@@ -23,6 +23,7 @@ public class BlockLib extends ModRegistryLib<Block> {
     public boolean isSlab = false;
     public boolean isStairs = false;
     public boolean isWooden = false;
+    public boolean isGlass = false;
     public ModItem dropItem;
     public float minDrop = 1f;
     public float maxDrop = 1f;
@@ -127,6 +128,11 @@ public class BlockLib extends ModRegistryLib<Block> {
 
     public BlockLib stairs() {
         this.isStairs = true;
+        return this;
+    }
+
+    public BlockLib translucent() {
+        this.isGlass = true;
         return this;
     }
 

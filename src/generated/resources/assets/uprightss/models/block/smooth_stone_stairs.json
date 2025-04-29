@@ -1,5 +1,6 @@
 {
   "parent": "minecraft:block/stairs",
+  "render_type": "minecraft:solid",
   "textures": {
     "bottom": "minecraft:block/smooth_stone",
     "side": "minecraft:block/smooth_stone",
