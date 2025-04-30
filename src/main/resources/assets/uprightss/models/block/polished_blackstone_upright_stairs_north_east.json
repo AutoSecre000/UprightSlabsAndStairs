@@ -1,9 +1,0 @@
-{
-  "parent": "uprightss:block/upright_stairs_north_east",
-  "textures": {
-    "outer": "minecraft:block/polished_blackstone",
-    "inner": "minecraft:block/polished_blackstone",
-    "top": "minecraft:block/polished_blackstone",
-    "bottom": "minecraft:block/polished_blackstone"
-  }
-}

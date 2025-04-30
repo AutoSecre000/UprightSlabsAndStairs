@@ -1,9 +1,0 @@
-{
-  "parent": "uprightss:block/upright_stairs_south_west",
-  "textures": {
-    "outer": "minecraft:block/deepslate_tiles",
-    "inner": "minecraft:block/deepslate_tiles",
-    "top": "minecraft:block/deepslate_tiles",
-    "bottom": "minecraft:block/deepslate_tiles"
-  }
-}
