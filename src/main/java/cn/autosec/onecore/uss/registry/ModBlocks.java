@@ -335,7 +335,7 @@ public class ModBlocks {
             blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
 
             blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().translucent().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
-            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().translucent().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().translucent().texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(SMOOTH_STONE_STAIRS, "smooth_stone_stairs").locale("Smooth Stone Stairs", "平滑石楼梯").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.SMOOTH_STONE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(SMOOTH_STONE_TRANSVERSE_STAIRS, "smooth_stone_transverse_stairs").locale("Smooth Stone Transverse Stairs", "横纹平滑石楼梯").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().texture(Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE_SLAB, "_side").creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
         }
