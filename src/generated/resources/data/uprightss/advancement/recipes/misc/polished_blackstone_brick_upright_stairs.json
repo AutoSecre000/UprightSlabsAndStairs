@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "uprightss:polished_blackstone_brick_upright_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_upright_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:polished_blackstone_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_upright_stairs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "uprightss:polished_blackstone_brick_upright_stairs"
+    ]
+  }
+}
