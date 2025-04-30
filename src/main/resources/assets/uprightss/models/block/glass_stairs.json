@@ -1,9 +1,51 @@
 {
-  "parent": "minecraft:block/stairs",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "minecraft:block/glass",
-    "side": "minecraft:block/glass",
-    "top": "minecraft:block/glass"
-  }
+    "parent": "block/block",
+    "render_type": "minecraft:cutout",
+    "textures": {
+        "1": "minecraft:block/glass",
+        "2": "uprightss:block/glass_upright_slab_left_right",
+        "3": "uprightss:block/glass_upright_stairs_south_east",
+        "4": "uprightss:block/glass_upright_stairs_south_west",
+        "5": "uprightss:block/glass_upright_slab_top_bottom",
+        "particle": "uprightss:block/glass_upright_stairs_south_east"
+    },
+    "elements": [
+        {
+            "from": [0, 0, 0],
+            "to": [16, 8, 16],
+            "faces": {
+                "north": {"uv": [0, 8, 16, 16], "texture": "#4", "cullface": "north"},
+                "east": {"uv": [0, 8, 16, 16], "texture": "#1", "cullface": "east"},
+                "south": {"uv": [0, 8, 16, 16], "texture": "#3", "cullface": "south"},
+                "west": {"uv": [0, 0, 16, 8], "texture": "#5", "cullface": "west"},
+                "up": {"uv": [0, 0, 16, 16], "texture": "#2"},
+                "down": {"uv": [0, 0, 16, 16], "texture": "#1", "cullface": "down"}
+            }
+        },
+        {
+            "from": [8, 8, 0],
+            "to": [16, 16, 16],
+            "faces": {
+                "north": {"uv": [0, 0, 8, 8], "texture": "#4", "cullface": "north"},
+                "east": {"uv": [0, 0, 16, 8], "texture": "#1", "cullface": "east"},
+                "south": {"uv": [8, 0, 16, 8], "texture": "#3", "cullface": "south"},
+                "west": {"uv": [0, 0, 16, 8], "texture": "#5"},
+                "up": {"uv": [0, 0, 8, 16], "texture": "#2", "cullface": "up"}
+            }
+        }
+    ],
+    "display": {
+        "thirdperson_lefthand": {
+            "rotation": [75, -135, 0],
+            "translation": [0, 2.5, 0],
+            "scale": [0.375, 0.375, 0.375]
+        },
+        "gui": {
+            "rotation": [30, 135, 0],
+            "scale": [0.625, 0.625, 0.625]
+        },
+        "head": {
+            "rotation": [0, -90, 0]
+        }
+    }
 }
