@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "minecraft:exposed_copper"
-  },
-  "result": "uprightss:exposed_cut_copper_upright_slab"
-}

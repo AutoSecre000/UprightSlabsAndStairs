@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:polished_deepslate"
-  },
-  "result": "uprightss:polished_deepslate_upright_stairs"
-}
