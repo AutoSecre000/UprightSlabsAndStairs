@@ -1,19 +1,20 @@
 # 竖直台阶与楼梯 - 提供更薄的墙壁以及更多建筑装饰可能性
 
+## Upright slabs and stairs - Offer thinner walls and more possibilities for architectural decoration
+
 本模组为原版Minecraft中所有材质的台阶与楼梯增加了竖直的版本，同时也添加了一些原版游戏中缺少的台阶、楼梯。
 
-已经支持的版本：
+This module adds vertical versions of all the slabs and stairs in the original Minecraft, and also includes some steps and stairs that were missing in the original game. 
 
-forge:
-- 1.20.2
-
-## 新增方块
-
-（以1.20.2版本的方块列表为例）
+## 新增方块 | New Blocks
 
 ### 原版中缺失的台阶和楼梯：
 
 - 平滑石楼梯（分成平滑与横纹两种样式）
+
+### The missing slabs and stairs in the original game:
+
+- Smooth stone stairs (divided into smooth and cross-grained styles)
 
 ### 如下对应材质的竖直台阶和竖直楼梯：
 
@@ -37,12 +38,44 @@ forge:
 - 涂蜡的氧化切制铜、涂蜡的锈蚀切制铜、涂蜡的斑驳切制铜、涂蜡的切制铜
 - 深板岩圆石、磨制深板岩、深板岩瓦、深板岩砖
 
-## 新增方块（开发中）
+### The upright slabs and upright stairs corresponding to the following materials:
 
-以下方块仍然在开发中，贴图可能存在问题：
+- Oak, spruce, birch, jungle, acacia, cherry, dark oak, redwood
+- Bamboo, bamboo mosaic
+- Cobbled stone, stone, smooth stone
+- Sandstone, cut sandstone, smooth sandstone
+- Brick, stone brick, mud brick
+- Nether brick, end stone brick, red nether brick
+- Prismarine, prismarine brick, dark prismarine
+- Quartz, smooth quartz
+- Red sandstone, cut red sandstone, smooth red sandstone
+- Purpur
+- Granite, polished granite
+- Diorite, polished diorite
+- Mossy stone, mossy stone brick
+- Andesite, polished andesite
+- Crimson, warped
+- Black stone, polished black stone brick, polished black stone
+- Oxidized cut copper, weathered cut copper, exposed cut copper, cut copper
+- Waxed oxidized cut copper, waxed weathered cut copper, waxed exposed cut copper, waxed cut copper
+- Cobbled deep slate, polished deep slate, deep slate tile, deep slate brick
+
+## 新增方块（开发中）| New Blocks (Under Development)
+
+### 以下方块仍然在开发中，贴图可能存在问题：
 
 - 玻璃台阶、楼梯以及它们的竖直版本
 
-## 相关信息
+### The following blocks are still under development and there might be some display problems.
+
+- Glass slabs, stairs and their upright versions.
+
+## 相关信息 | Other Information
 
 模组处于开发阶段，并且计划支持更多版本。如果在使用中遇到问题，请给我留言吧！
+
+The module is currently in the development stage and is planned to support more versions. If you encounter any problems, please leave a message!
+
+[[Github]UprightSlabsAndStairs](https://github.com/AutoSecre000/UprightSlabsAndStairs)
+
+*“终于完事了——啊？什么叫必须有英文介绍？ ” ——我*
