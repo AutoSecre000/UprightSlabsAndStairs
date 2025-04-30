@@ -94,7 +94,7 @@ public class BlockLib extends ModRegistryLib<Block> {
     public BlockLib texture(Block texture) {
         this.hasSideTexture = false;
         ResourceLocation name = ForgeRegistries.BLOCKS.getKey(texture);
-        this.texture = new ResourceLocation(name.getNamespace(),
+        this.texture = ResourceLocation.fromNamespaceAndPath(name.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name.getPath());
         return this;
     }
@@ -102,10 +102,10 @@ public class BlockLib extends ModRegistryLib<Block> {
     public BlockLib texture(Block texture, Block sideTexture) {
         this.hasSideTexture = true;
         ResourceLocation name1 = ForgeRegistries.BLOCKS.getKey(texture);
-        this.texture = new ResourceLocation(name1.getNamespace(),
+        this.texture = ResourceLocation.fromNamespaceAndPath(name1.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name1.getPath());
         ResourceLocation name2 = ForgeRegistries.BLOCKS.getKey(sideTexture);
-        this.sideTexture = new ResourceLocation(name2.getNamespace(),
+        this.sideTexture = ResourceLocation.fromNamespaceAndPath(name2.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name2.getPath());
         return this;
     }
@@ -113,10 +113,10 @@ public class BlockLib extends ModRegistryLib<Block> {
     public BlockLib texture(Block texture, Block sideTexture, String suffix) {
         this.hasSideTexture = true;
         ResourceLocation name1 = ForgeRegistries.BLOCKS.getKey(texture);
-        this.texture = new ResourceLocation(name1.getNamespace(),
+        this.texture = ResourceLocation.fromNamespaceAndPath(name1.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name1.getPath());
         ResourceLocation name2 = ForgeRegistries.BLOCKS.getKey(sideTexture);
-        this.sideTexture = new ResourceLocation(name2.getNamespace(),
+        this.sideTexture = ResourceLocation.fromNamespaceAndPath(name2.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name2.getPath() + suffix);
         return this;
     }

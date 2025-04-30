@@ -3,7 +3,10 @@ package cn.autosec.onecore.uss.datagen;
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.definition.lib.BlockLib;
 import cn.autosec.onecore.uss.registry.ModBlocks;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -19,12 +22,17 @@ import java.util.stream.Collectors;
 
 public class LootTableGenerators extends VanillaBlockLoot {
 
+    public LootTableGenerators(HolderLookup.Provider p_345352_) {
+        super(p_345352_);
+    }
+
     @Override
     protected void generate() {
         List<BlockLib> blockLootTables = ModBlocks.getBlockLib();
         if (blockLootTables == null) {
             return;
         }
+        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         for (BlockLib blockLib : blockLootTables) {
             if (blockLib.isSlab) {
                 add(blockLib.modRegistry.get(), createSlabItemTable(blockLib.modRegistry.get()));
@@ -36,7 +44,7 @@ public class LootTableGenerators extends VanillaBlockLoot {
                     if (blockLib.applyToFortune) {
                         return createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(blockLib.dropItem.get())
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(blockLib.minDrop, blockLib.maxDrop)))
-                                .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE))));
+                                .apply(ApplyBonusCount.addUniformBonusCount(registrylookup.getOrThrow(Enchantments.FORTUNE)))));
                     }
                     return createSilkTouchDispatchTable(block, this.applyExplosionDecay(block, LootItem.lootTableItem(blockLib.dropItem.get())
                             .apply(SetItemCountFunction.setCount(UniformGenerator.between(blockLib.minDrop, blockLib.maxDrop)))));

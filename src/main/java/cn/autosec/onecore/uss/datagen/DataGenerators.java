@@ -32,7 +32,7 @@ public class DataGenerators {
                 event.getExistingFileHelper());
         generator.addProvider(event.includeServer(), blockTagsGenerators);
         generator.addProvider(event.includeServer(), new LootTableProvider(output, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(LootTableGenerators::new, LootContextParamSets.BLOCK))));
-        generator.addProvider(event.includeServer(), new RecipeGenerators(output));
+                List.of(new LootTableProvider.SubProviderEntry(LootTableGenerators::new, LootContextParamSets.BLOCK)), lookupProvider));
+        generator.addProvider(event.includeServer(), new RecipeGenerators(output, lookupProvider));
     }
 }

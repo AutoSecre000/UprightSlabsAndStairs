@@ -2,15 +2,17 @@ package cn.autosec.onecore.uss.datagen;
 
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import cn.autosec.onecore.uss.registry.ModRecipes;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 public class RecipeGenerators extends RecipeProvider {
-    public RecipeGenerators(PackOutput output) {
-        super(output);
+    public RecipeGenerators(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider);
     }
 
     @Override

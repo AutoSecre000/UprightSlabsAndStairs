@@ -75,7 +75,7 @@ public class CopperUprightStairsBlock extends UprightStairsBlock implements Weat
 
     public void randomTick(BlockState blockState, ServerLevel serverLevel,
                            BlockPos blockPos, RandomSource randomSource) {
-        this.onRandomTick(blockState, serverLevel, blockPos, randomSource);
+        super.randomTick(blockState, serverLevel, blockPos, randomSource);
     }
 
     public boolean isRandomlyTicking(BlockState blockState) {

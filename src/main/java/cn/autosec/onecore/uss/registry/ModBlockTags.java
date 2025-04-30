@@ -1,5 +1,6 @@
 package cn.autosec.onecore.uss.registry;
 
+import cn.autosec.onecore.uss.OneCore;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -12,7 +13,7 @@ public class ModBlockTags {
     }
 
     private static TagKey<Block> create(String name) {
-        return TagKey.create(Registries.BLOCK, new ResourceLocation(name));
+        return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name));
     }
 
     public static TagKey<Block> create(ResourceLocation name) {

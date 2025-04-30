@@ -5,6 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -32,12 +33,12 @@ public class CustomBlockItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> components, TooltipFlag tooltipFlag) {
         if (Screen.hasShiftDown()) {
             components.add(Component.translatable(Utils.ONECORE_DESCRIPTION_DETAIL_HEAD_TAG + getDescriptionId()).withStyle(ChatFormatting.AQUA));
         } else {
             components.add(Component.translatable(Utils.ONECORE_DESCRIPTION_BRIEF_TAG).withStyle(ChatFormatting.YELLOW));
         }
-        super.appendHoverText(itemStack, level, components, tooltipFlag);
+        super.appendHoverText(itemStack, tooltipContext, components, tooltipFlag);
     }
 }
