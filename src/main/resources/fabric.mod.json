@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.autosec.onecore.uss.OneCore"
+			"cn.autosec.onecore.uss.OneCore"
 		],
 		"client": [
-			"com.autosec.onecore.uss.OneCoreClient"
+			"cn.autosec.onecore.uss.OneCoreClient"
 		],
 		"fabric-datagen": [
-			"com.autosec.onecore.uss.OneCoreDataGenerator"
+			"cn.autosec.onecore.uss.OneCoreDataGenerator"
 		]
 	},
 	"mixins": [

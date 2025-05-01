@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "com.autosec.onecore.uss.mixin",
+	"package": "cn.autosec.onecore.uss.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"OneCoreMixin"

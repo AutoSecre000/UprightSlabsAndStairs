@@ -1,4 +1,4 @@
-package com.autosec.onecore.uss;
+package cn.autosec.onecore.uss;
 
 import net.fabricmc.api.ModInitializer;
 
@@ -20,5 +20,7 @@ public class OneCore implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+		ModBlocks.initialize();
+		ModItems.initialize();
 	}
 }

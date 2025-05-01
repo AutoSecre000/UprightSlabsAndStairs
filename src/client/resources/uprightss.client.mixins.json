@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "com.autosec.onecore.uss.mixin.client",
+	"package": "cn.autosec.onecore.uss.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-      "OneCoreClientMixin"
+		"OneCoreClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

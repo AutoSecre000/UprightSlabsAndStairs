@@ -1,4 +1,4 @@
-package com.autosec.onecore.uss;
+package cn.autosec.onecore.uss;
 
 import net.fabricmc.api.ClientModInitializer;
 
