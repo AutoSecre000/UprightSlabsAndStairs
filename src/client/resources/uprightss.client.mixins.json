@@ -3,7 +3,7 @@
 	"package": "com.autosec.onecore.uss.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"ModClientMixin"
+      "OneCoreClientMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -3,7 +3,7 @@
 	"package": "com.autosec.onecore.uss.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-      "OneCore"
+		"OneCoreMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
