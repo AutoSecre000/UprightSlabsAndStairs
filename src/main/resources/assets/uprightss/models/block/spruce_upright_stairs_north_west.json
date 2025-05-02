@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_west",
+  "textures": {
+    "outer": "minecraft:block/spruce_planks",
+    "inner": "minecraft:block/spruce_planks",
+    "top": "minecraft:block/spruce_planks",
+    "bottom": "minecraft:block/spruce_planks"
+  }
+}

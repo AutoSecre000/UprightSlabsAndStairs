@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_east",
+  "textures": {
+    "front": "minecraft:block/sandstone_top",
+    "back": "minecraft:block/sandstone_top",
+    "side": "minecraft:block/sandstone_top",
+    "top": "minecraft:block/sandstone_top",
+    "bottom": "minecraft:block/sandstone_top"
+  }
+}

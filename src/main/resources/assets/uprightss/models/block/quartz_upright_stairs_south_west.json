@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_west",
+  "textures": {
+    "outer": "minecraft:block/quartz_block_side",
+    "inner": "minecraft:block/quartz_block_side",
+    "top": "minecraft:block/quartz_block_top",
+    "bottom": "minecraft:block/quartz_block_bottom"
+  }
+}

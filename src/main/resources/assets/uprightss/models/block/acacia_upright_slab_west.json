@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_west",
+  "textures": {
+    "front": "minecraft:block/acacia_planks",
+    "back": "minecraft:block/acacia_planks",
+    "side": "minecraft:block/acacia_planks",
+    "top": "minecraft:block/acacia_planks",
+    "bottom": "minecraft:block/acacia_planks"
+  }
+}

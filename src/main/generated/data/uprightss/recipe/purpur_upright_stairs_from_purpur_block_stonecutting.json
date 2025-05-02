@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:purpur_block"
+  },
+  "result": {
+    "count": 1,
+    "id": "uprightss:purpur_upright_stairs"
+  }
+}

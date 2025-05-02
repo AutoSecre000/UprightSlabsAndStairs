@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/mangrove_planks",
+    "inner": "minecraft:block/mangrove_planks",
+    "top": "minecraft:block/mangrove_planks",
+    "bottom": "minecraft:block/mangrove_planks"
+  }
+}

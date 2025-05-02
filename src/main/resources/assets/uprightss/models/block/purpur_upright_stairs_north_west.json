@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_west",
+  "textures": {
+    "outer": "minecraft:block/purpur_block",
+    "inner": "minecraft:block/purpur_block",
+    "top": "minecraft:block/purpur_block",
+    "bottom": "minecraft:block/purpur_block"
+  }
+}
