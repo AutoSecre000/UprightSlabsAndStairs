@@ -14,6 +14,7 @@ import cn.autosec.onecore.uss.definition.lib.ItemLib;
 import cn.autosec.onecore.uss.definition.registries.ModBlock;
 import cn.autosec.onecore.uss.definition.registries.ModItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
@@ -347,5 +348,19 @@ public class ModBlocks {
             ItemGroupEvents.modifyEntriesEvent(blockLib.creativeTab).
                     register((itemGroup) -> {itemGroup.add(blockLib.modRegistry.get().asItem());});
         }
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.get());
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.WAXED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.get(), ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.WAXED_CUT_COPPER_UPRIGHT_STAIRS.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.get());
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.get(), ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.get());
     }
 }

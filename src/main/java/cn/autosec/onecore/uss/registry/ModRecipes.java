@@ -1,6 +1,7 @@
 package cn.autosec.onecore.uss.registry;
 
 import cn.autosec.onecore.uss.OneCore;
+import cn.autosec.onecore.uss.definition.lib.CraftingRecipeLib;
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -12,46 +13,51 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModRecipes {
-    private static final List<ShapedRecipeJsonBuilder> craftingRecipes = new ArrayList<>();
+    private static final List<CraftingRecipeLib> craftingRecipes = new ArrayList<>();
 
     private static void AddSimple3VInputRecipe(Item input, Item output) {
-        craftingRecipes.add(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 6)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 6)
                 .pattern("#").pattern("#").pattern("#")
                 .input('#', input).group(OneCore.MOD_ID)
-                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input)));
+                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))));
     }
 
     private static void AddSimple3HInputRecipe(Item input, Item output) {
-        craftingRecipes.add(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 6)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 6)
                 .pattern("###")
                 .input('#', input).group(OneCore.MOD_ID)
-                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input)));
+                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))));
     }
 
     private static void AddUprightStairsInputRecipe(Item input, Item output) {
-        craftingRecipes.add(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
                 .pattern("###").pattern("## ").pattern("#  ")
                 .input('#', input).group(OneCore.MOD_ID)
-                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input)));
+                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))));
     }
 
     private static void AddStairsInputRecipe(Item input, Item output) {
-        craftingRecipes.add(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
                 .pattern("#  ").pattern("## ").pattern("###")
                 .input('#', input).group(OneCore.MOD_ID)
-                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input)));
+                .criterion(FabricRecipeProvider.hasItem(input), FabricRecipeProvider.conditionsFromItem(input))));
     }
 
     private static void AddTransverseStairsInputRecipe(Item input1, Item input2, Item output) {
-        craftingRecipes.add(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, output, 4)
                 .pattern("@  ").pattern("@@@").pattern("###")
                 .input('#', input1).group(OneCore.MOD_ID)
                 .input('@', input2).group(OneCore.MOD_ID)
                 .criterion(FabricRecipeProvider.hasItem(input1), FabricRecipeProvider.conditionsFromItem(input1))
-                .criterion(FabricRecipeProvider.hasItem(input2), FabricRecipeProvider.conditionsFromItem(input2)));
+                .criterion(FabricRecipeProvider.hasItem(input2), FabricRecipeProvider.conditionsFromItem(input2))));
     }
 
-    public static List<ShapedRecipeJsonBuilder> getCraftingRecipeBuilders() {
+    private static void AddWaxedCopperInputRecipe(Item input1, Item output) {
+        craftingRecipes.add(CraftingRecipeLib.of(input1, Items.HONEYCOMB,
+                output, RecipeCategory.MISC).conversionRecipe());
+    }
+
+    public static List<CraftingRecipeLib> getCraftingRecipeBuilders() {
         if (craftingRecipes.isEmpty()) {
             AddSimple3VInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_SLAB.getItem());
             AddUprightStairsInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_STAIRS.getItem());
@@ -171,6 +177,14 @@ public class ModRecipes {
             AddStairsInputRecipe(Items.GLASS, ModBlocks.GLASS_STAIRS.getItem());
             AddStairsInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_STAIRS.getItem());
             AddTransverseStairsInputRecipe(Items.SMOOTH_STONE, Items.SMOOTH_STONE_SLAB, ModBlocks.SMOOTH_STONE_TRANSVERSE_STAIRS.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_SLAB.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_SLAB.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_CUT_COPPER_UPRIGHT_SLAB.getItem());
+            AddWaxedCopperInputRecipe(ModBlocks.CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_CUT_COPPER_UPRIGHT_STAIRS.getItem());
         }
         return craftingRecipes;
     }

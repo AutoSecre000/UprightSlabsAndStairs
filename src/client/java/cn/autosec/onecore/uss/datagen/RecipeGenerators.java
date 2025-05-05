@@ -1,11 +1,11 @@
 package cn.autosec.onecore.uss.datagen;
 
+import cn.autosec.onecore.uss.definition.lib.CraftingRecipeLib;
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import cn.autosec.onecore.uss.registry.ModRecipes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.List;
@@ -18,10 +18,14 @@ public class RecipeGenerators extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter recipeExporter) {
-        List<ShapedRecipeJsonBuilder> craftingRecipeBuilders = ModRecipes.getCraftingRecipeBuilders();
+        List<CraftingRecipeLib> craftingRecipeBuilders = ModRecipes.getCraftingRecipeBuilders();
         if (craftingRecipeBuilders != null) {
-            for (ShapedRecipeJsonBuilder builder : craftingRecipeBuilders) {
-                builder.offerTo(recipeExporter);
+            for (CraftingRecipeLib lib : craftingRecipeBuilders) {
+                if (lib.isConversionRecipe) {
+                    lib.recipeBuilder.offerTo(recipeExporter, convertBetween(lib.conversionInput, lib.converter));
+                } else {
+                    lib.recipeBuilder.offerTo(recipeExporter);
+                }
             }
         }
 
