@@ -55,6 +55,12 @@ public class BlockTagsGenerators extends BlockTagsProvider {
                     }
                     this.tag(BlockTags.STAIRS).add(blockLib.block);
                 }
+                if (blockLib.isCopper) {
+                    this.tag(ModBlockTags.ONECORE_COPPER).add(blockLib.block);
+                }
+                if (blockLib.isWaxed) {
+                    this.tag(ModBlockTags.ONECORE_WAXED).add(blockLib.block);
+                }
             }
         }
     }

@@ -1,63 +1,72 @@
 package cn.autosec.onecore.uss.registry;
 
 import cn.autosec.onecore.uss.OneCore;
+import cn.autosec.onecore.uss.definition.lib.CraftingRecipeLib;
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ModRecipes {
-    private static final List<RecipeBuilder> craftingRecipes = new ArrayList<>();
+    private static final List<CraftingRecipeLib> craftingRecipes = new ArrayList<>();
 
     private static void AddSimple3VInputRecipe(Item input, Item output, String trigger) {
-        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 6)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 6)
                 .pattern("#").pattern("#").pattern("#")
                 .define('#', input).group(OneCore.MODID)
                 .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
-                        ItemPredicate.Builder.item().of(input).build())));
+                        ItemPredicate.Builder.item().of(input).build()))));
     }
 
     private static void AddSimple3HInputRecipe(Item input, Item output, String trigger) {
-        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 6)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 6)
                 .pattern("###")
                 .define('#', input).group(OneCore.MODID)
                 .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
-                        ItemPredicate.Builder.item().of(input).build())));
+                        ItemPredicate.Builder.item().of(input).build()))));
     }
 
     private static void AddUprightStairsInputRecipe(Item input, Item output, String trigger) {
-        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
                 .pattern("###").pattern("## ").pattern("#  ")
                 .define('#', input).group(OneCore.MODID)
                 .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
-                        ItemPredicate.Builder.item().of(input).build())));
+                        ItemPredicate.Builder.item().of(input).build()))));
     }
 
     private static void AddStairsInputRecipe(Item input, Item output, String trigger) {
-        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
                 .pattern("#  ").pattern("## ").pattern("###")
                 .define('#', input).group(OneCore.MODID)
                 .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
-                        ItemPredicate.Builder.item().of(input).build())));
+                        ItemPredicate.Builder.item().of(input).build()))));
     }
 
     private static void AddTransverseStairsInputRecipe(Item input1, Item input2, Item output, String trigger) {
-        craftingRecipes.add(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
+        craftingRecipes.add(CraftingRecipeLib.of(ShapedRecipeBuilder.shaped(RecipeCategory.MISC, output, 4)
                 .pattern("@  ").pattern("@@@").pattern("###")
                 .define('#', input1).group(OneCore.MODID)
                 .define('@', input2).group(OneCore.MODID)
                 .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
                         ItemPredicate.Builder.item().of(input1).build()))
                 .unlockedBy(trigger, InventoryChangeTrigger.TriggerInstance.hasItems(
-                        ItemPredicate.Builder.item().of(input2).build())));
+                        ItemPredicate.Builder.item().of(input2).build()))));
     }
 
-    public static List<RecipeBuilder> getCraftingRecipeBuilders() {
+    private static void AddWaxedCopperInputRecipe(Item input1, Item output, String trigger) {
+        craftingRecipes.add(CraftingRecipeLib.of(input1, Items.HONEYCOMB,
+                output, RecipeCategory.MISC, trigger).conversionRecipe());
+    }
+
+    public static List<CraftingRecipeLib> getCraftingRecipeBuilders() {
         if (craftingRecipes.isEmpty()) {
             AddSimple3VInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_SLAB.getItem(), "has_upright_slab");
             AddUprightStairsInputRecipe(Items.PRISMARINE, ModBlocks.PRISMARINE_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
@@ -177,6 +186,14 @@ public class ModRecipes {
             AddStairsInputRecipe(Items.GLASS, ModBlocks.GLASS_STAIRS.getItem(), "has_glass");
             AddStairsInputRecipe(Items.SMOOTH_STONE, ModBlocks.SMOOTH_STONE_STAIRS.getItem(), "has_smooth_stone");
             AddTransverseStairsInputRecipe(Items.SMOOTH_STONE, Items.SMOOTH_STONE_SLAB, ModBlocks.SMOOTH_STONE_TRANSVERSE_STAIRS.getItem(), "has_smooth_stone");
+            AddWaxedCopperInputRecipe(ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
+            AddWaxedCopperInputRecipe(ModBlocks.OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddWaxedCopperInputRecipe(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
+            AddWaxedCopperInputRecipe(ModBlocks.WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddWaxedCopperInputRecipe(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
+            AddWaxedCopperInputRecipe(ModBlocks.EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_EXPOSED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
+            AddWaxedCopperInputRecipe(ModBlocks.CUT_COPPER_UPRIGHT_SLAB.getItem(), ModBlocks.WAXED_CUT_COPPER_UPRIGHT_SLAB.getItem(), "has_upright_slab");
+            AddWaxedCopperInputRecipe(ModBlocks.CUT_COPPER_UPRIGHT_STAIRS.getItem(), ModBlocks.WAXED_CUT_COPPER_UPRIGHT_STAIRS.getItem(), "has_upright_stairs");
         }
         return craftingRecipes;
     }

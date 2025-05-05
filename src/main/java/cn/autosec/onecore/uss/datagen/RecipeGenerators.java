@@ -1,5 +1,6 @@
 package cn.autosec.onecore.uss.datagen;
 
+import cn.autosec.onecore.uss.definition.lib.CraftingRecipeLib;
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import cn.autosec.onecore.uss.registry.ModRecipes;
 import net.minecraft.core.HolderLookup;
@@ -17,10 +18,14 @@ public class RecipeGenerators extends RecipeProvider {
 
     @Override
     protected void buildRecipes(@NotNull RecipeOutput output) {
-        List<RecipeBuilder> craftingRecipeBuilders = ModRecipes.getCraftingRecipeBuilders();
+        List<CraftingRecipeLib> craftingRecipeBuilders = ModRecipes.getCraftingRecipeBuilders();
         if (craftingRecipeBuilders != null) {
-            for (RecipeBuilder builder : craftingRecipeBuilders) {
-                builder.save(output);
+            for (CraftingRecipeLib lib : craftingRecipeBuilders) {
+                if (lib.isConversionRecipe) {
+                    lib.recipeBuilder.save(output, getConversionRecipeName(lib.conversionInput, lib.converter));
+                } else {
+                    lib.recipeBuilder.save(output);
+                }
             }
         }
 
