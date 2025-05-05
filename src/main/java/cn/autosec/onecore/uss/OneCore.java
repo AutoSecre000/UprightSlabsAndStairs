@@ -1,5 +1,6 @@
 package cn.autosec.onecore.uss;
 
+import cn.autosec.onecore.uss.event.ModEventHandler;
 import cn.autosec.onecore.uss.registry.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
@@ -32,6 +33,7 @@ public class OneCore
     public OneCore()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
         // Register the commonSetup method for mod-loading
         modEventBus.addListener(this::commonSetup);
         // Register the Deferred Register to the mod event bus so blocks get registered
@@ -43,7 +45,8 @@ public class OneCore
 
         modEventBus.addListener(ModBlocks::addCreative);
         // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        forgeEventBus.register(this);
+        forgeEventBus.register(ModEventHandler.class);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }

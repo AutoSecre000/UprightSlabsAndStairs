@@ -7,6 +7,8 @@ import net.minecraft.world.level.block.Block;
 
 public class ModBlockTags {
     public static final TagKey<Block> ONECORE_BLOCKS = create("onecore_blocks");
+    public static final TagKey<Block> ONECORE_WAXED = create("onecore_waxed");
+    public static final TagKey<Block> ONECORE_COPPER = create("onecore_copper");
 
     private ModBlockTags() {
     }
