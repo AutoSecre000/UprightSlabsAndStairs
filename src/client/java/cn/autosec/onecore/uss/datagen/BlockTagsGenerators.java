@@ -54,6 +54,12 @@ public class BlockTagsGenerators extends FabricTagProvider<Block> {
                     }
                     getOrCreateTagBuilder(BlockTags.STAIRS).add(blockLib.block.get());
                 }
+                if (blockLib.isCopper) {
+                    getOrCreateTagBuilder(ModBlockTags.ONECORE_COPPER).add(blockLib.block.get());
+                }
+                if (blockLib.isWaxed) {
+                    getOrCreateTagBuilder(ModBlockTags.ONECORE_WAXED).add(blockLib.block.get());
+                }
             }
         }
     }

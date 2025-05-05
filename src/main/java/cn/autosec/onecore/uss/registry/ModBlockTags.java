@@ -10,6 +10,10 @@ import net.minecraft.util.Identifier;
 public class ModBlockTags {
     public static final TagKey<Block> ONECORE_BLOCKS =
             TagKey.of(RegistryKeys.BLOCK, Identifier.of(OneCore.MOD_ID, "onecore_blocks"));
+    public static final TagKey<Block> ONECORE_WAXED =
+            TagKey.of(RegistryKeys.BLOCK, Identifier.of(OneCore.MOD_ID, "onecore_waxed"));
+    public static final TagKey<Block> ONECORE_COPPER =
+            TagKey.of(RegistryKeys.BLOCK, Identifier.of(OneCore.MOD_ID, "onecore_copper"));
 
     public ModBlockTags() {
     }
