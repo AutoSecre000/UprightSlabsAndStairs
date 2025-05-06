@@ -33,7 +33,7 @@ public class CustomBlockItem extends BlockItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, Item.TooltipContext tooltipContext, List<Component> components, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack itemStack, TooltipContext tooltipContext, List<Component> components, TooltipFlag tooltipFlag) {
         if (Screen.hasShiftDown()) {
             components.add(Component.translatable(Utils.ONECORE_DESCRIPTION_DETAIL_HEAD_TAG + getDescriptionId()).withStyle(ChatFormatting.AQUA));
         } else {

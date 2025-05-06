@@ -9,10 +9,10 @@ public class ModRegistryLib<T> extends ModLib {
     public String localeCn = "";
     public String descriptionLocaleEn = "";
     public String descriptionLocaleCn = "";
-    public ModRegistry<T> modRegistry;
+    public T modRegistry;
     public String creativeTab = Utils.ONECORE_CREATIVE_TAB_USS;
 
-    public ModRegistryLib(ModRegistry<T> modRegistry, String name) {
+    public ModRegistryLib(T modRegistry, String name) {
         this.modRegistry = modRegistry;
         this.name = name;
     }

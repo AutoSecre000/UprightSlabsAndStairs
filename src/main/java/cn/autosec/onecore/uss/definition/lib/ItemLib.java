@@ -1,9 +1,8 @@
 package cn.autosec.onecore.uss.definition.lib;
 
 import cn.autosec.onecore.uss.definition.registries.ModItem;
-import net.minecraft.world.item.Item;
 
-public class ItemLib extends ModRegistryLib<Item> {
+public class ItemLib extends ModRegistryLib<ModItem> {
     public boolean isBlockItem = false;
     public enum TAG_KEY {
         NORMAL,

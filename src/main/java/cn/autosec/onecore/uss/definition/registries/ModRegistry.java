@@ -1,27 +1,24 @@
 package cn.autosec.onecore.uss.definition.registries;
 
 import net.minecraft.tags.TagKey;
-import net.minecraftforge.registries.RegistryObject;
 
-public class ModRegistry<T> {
-    protected final RegistryObject<T> registryObject;
+public abstract class ModRegistry<T, U> {
+    protected final T registryObject;
 
-    protected final TagKey<T> tagKey;
+    protected final TagKey<U> tagKey;
 
-    public ModRegistry(RegistryObject<T> registryObject, TagKey<T> tagKey) {
+    public ModRegistry(T registryObject, TagKey<U> tagKey) {
         this.registryObject = registryObject;
         this.tagKey = tagKey;
     }
 
-    public RegistryObject<T> self() {
+    public T self() {
         return registryObject;
     }
 
-    public T get() {
-        return registryObject.get();
-    }
+    public abstract U get();
 
-    public TagKey<T> tag() {
+    public TagKey<U> tag() {
         return tagKey;
     }
 }

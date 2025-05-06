@@ -1,0 +1,22 @@
+{
+  "values": {
+    "uprightss:cut_copper_upright_slab": {
+      "next_oxidation_stage": "uprightss:exposed_cut_copper_upright_slab"
+    },
+    "uprightss:cut_copper_upright_stairs": {
+      "next_oxidation_stage": "uprightss:exposed_cut_copper_upright_stairs"
+    },
+    "uprightss:exposed_cut_copper_upright_slab": {
+      "next_oxidation_stage": "uprightss:weathered_cut_copper_upright_slab"
+    },
+    "uprightss:exposed_cut_copper_upright_stairs": {
+      "next_oxidation_stage": "uprightss:weathered_cut_copper_upright_stairs"
+    },
+    "uprightss:weathered_cut_copper_upright_slab": {
+      "next_oxidation_stage": "uprightss:oxidized_cut_copper_upright_slab"
+    },
+    "uprightss:weathered_cut_copper_upright_stairs": {
+      "next_oxidation_stage": "uprightss:oxidized_cut_copper_upright_stairs"
+    }
+  }
+}

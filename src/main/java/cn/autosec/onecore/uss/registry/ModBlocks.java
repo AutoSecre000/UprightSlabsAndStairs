@@ -27,11 +27,11 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +44,11 @@ public class ModBlocks {
     public static final EnumProperty<ModStairTypes> UPRIGHT_STAIR_TYPE =
             EnumProperty.create("type", ModStairTypes.class);
 
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OneCore.MODID);
+    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(OneCore.MODID);
 
     private static ModBlock registerSlabBlock(String name, Supplier<SlabBlock> sup) {
-        RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
-        RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
+        DeferredBlock<Block> blockRegistryObject = BLOCKS.register(name, sup);
+        DeferredItem<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
                 ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
@@ -59,8 +59,8 @@ public class ModBlocks {
     }
 
     private static ModBlock registerStairsBlock(String name, Supplier<StairBlock> sup) {
-        RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
-        RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
+        DeferredBlock<Block> blockRegistryObject = BLOCKS.register(name, sup);
+        DeferredItem<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
                 ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
@@ -71,8 +71,8 @@ public class ModBlocks {
     }
 
     private static ModBlock registerUprightSlabBlock(String name, Supplier<UprightSlabBlock> sup) {
-        RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
-        RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
+        DeferredBlock<Block> blockRegistryObject = BLOCKS.register(name, sup);
+        DeferredItem<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
                 ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
@@ -83,8 +83,8 @@ public class ModBlocks {
     }
 
     private static ModBlock registerUprightStairsBlock(String name, Supplier<UprightStairsBlock> sup) {
-        RegistryObject<Block> blockRegistryObject = BLOCKS.register(name, sup);
-        RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
+        DeferredBlock<Block> blockRegistryObject = BLOCKS.register(name, sup);
+        DeferredItem<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
                 ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));

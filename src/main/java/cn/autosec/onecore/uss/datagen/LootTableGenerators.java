@@ -21,11 +21,10 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class LootTableGenerators extends VanillaBlockLoot {
@@ -74,9 +73,9 @@ public class LootTableGenerators extends VanillaBlockLoot {
 
     @Override
     protected @NotNull Iterable<Block> getKnownBlocks() {
-        return ForgeRegistries.BLOCKS.getEntries().stream()
+        return ModBlocks.BLOCKS.getEntries().stream()
                 .filter(e -> e.getKey().location().getNamespace().equals(OneCore.MODID))
-                .map(Map.Entry::getValue)
+                .map(DeferredHolder::get)
                 .collect(Collectors.toList());
     }
 }

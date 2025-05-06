@@ -13,7 +13,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class GlassStairsBlock extends StairBlock {
 
-    public GlassStairsBlock(BlockState blockState, BlockBehaviour.Properties properties) {
+    public GlassStairsBlock(BlockState blockState, Properties properties) {
         super(blockState, properties);
     }
 

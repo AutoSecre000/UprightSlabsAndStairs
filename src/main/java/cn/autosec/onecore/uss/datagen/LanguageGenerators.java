@@ -7,7 +7,7 @@ import cn.autosec.onecore.uss.registry.ModBlocks;
 import cn.autosec.onecore.uss.registry.ModCreativeTabs;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 import java.util.List;
 

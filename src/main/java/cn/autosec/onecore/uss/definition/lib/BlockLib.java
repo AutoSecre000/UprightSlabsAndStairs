@@ -2,12 +2,12 @@ package cn.autosec.onecore.uss.definition.lib;
 
 import cn.autosec.onecore.uss.definition.registries.ModBlock;
 import cn.autosec.onecore.uss.definition.registries.ModItem;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ModelProvider;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.ModelProvider;
 
-public class BlockLib extends ModRegistryLib<Block> {
+public class BlockLib extends ModRegistryLib<ModBlock> {
     public ItemLib itemLib;
     public Block block;
     public boolean isSimpleCube = true;
@@ -101,7 +101,7 @@ public class BlockLib extends ModRegistryLib<Block> {
 
     public BlockLib texture(Block texture) {
         this.hasSideTexture = false;
-        ResourceLocation name = ForgeRegistries.BLOCKS.getKey(texture);
+        ResourceLocation name = BuiltInRegistries.BLOCK.getKey(texture);
         this.texture = ResourceLocation.fromNamespaceAndPath(name.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name.getPath());
         return this;
@@ -109,10 +109,10 @@ public class BlockLib extends ModRegistryLib<Block> {
 
     public BlockLib texture(Block texture, Block sideTexture) {
         this.hasSideTexture = true;
-        ResourceLocation name1 = ForgeRegistries.BLOCKS.getKey(texture);
+        ResourceLocation name1 = BuiltInRegistries.BLOCK.getKey(texture);
         this.texture = ResourceLocation.fromNamespaceAndPath(name1.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name1.getPath());
-        ResourceLocation name2 = ForgeRegistries.BLOCKS.getKey(sideTexture);
+        ResourceLocation name2 = BuiltInRegistries.BLOCK.getKey(sideTexture);
         this.sideTexture = ResourceLocation.fromNamespaceAndPath(name2.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name2.getPath());
         return this;
@@ -120,10 +120,10 @@ public class BlockLib extends ModRegistryLib<Block> {
 
     public BlockLib texture(Block texture, Block sideTexture, String suffix) {
         this.hasSideTexture = true;
-        ResourceLocation name1 = ForgeRegistries.BLOCKS.getKey(texture);
+        ResourceLocation name1 = BuiltInRegistries.BLOCK.getKey(texture);
         this.texture = ResourceLocation.fromNamespaceAndPath(name1.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name1.getPath());
-        ResourceLocation name2 = ForgeRegistries.BLOCKS.getKey(sideTexture);
+        ResourceLocation name2 = BuiltInRegistries.BLOCK.getKey(sideTexture);
         this.sideTexture = ResourceLocation.fromNamespaceAndPath(name2.getNamespace(),
                 ModelProvider.BLOCK_FOLDER + "/" + name2.getPath() + suffix);
         return this;
