@@ -5,12 +5,9 @@ import cn.autosec.onecore.uss.definition.lib.CraftingRecipeLib;
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Blocks;
 
 import java.util.ArrayList;
 import java.util.List;
