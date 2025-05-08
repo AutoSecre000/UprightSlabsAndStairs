@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_west",
+  "textures": {
+    "outer": "minecraft:block/lime_concrete_powder",
+    "inner": "minecraft:block/lime_concrete_powder",
+    "top": "minecraft:block/lime_concrete_powder",
+    "bottom": "minecraft:block/lime_concrete_powder"
+  }
+}
