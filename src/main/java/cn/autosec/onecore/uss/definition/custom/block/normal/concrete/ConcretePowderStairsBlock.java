@@ -1,5 +1,6 @@
 package cn.autosec.onecore.uss.definition.custom.block.normal.concrete;
 
+import cn.autosec.onecore.uss.OneCore;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
@@ -38,12 +39,15 @@ public class ConcretePowderStairsBlock extends StairBlock implements CustomConcr
         this.concrete = concrete;
     }
 
+    private BlockState waterlogged(Level level, BlockPos pos, BlockState state) {
+        FluidState fluidstate = level.getFluidState(pos);
+        return state.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
+    }
+
     @Override
     public void onLand(Level level, BlockPos pos, BlockState state, BlockState otherState, FallingBlockEntity entity) {
         if (CustomConcretePowderBlock.shouldSolidify(level, pos, state, otherState.getFluidState())) {
-            FluidState fluidstate = level.getFluidState(pos);
-            BlockState newBlockState = state.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
-            level.setBlock(pos, newBlockState, 3);
+            level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state)), 3);
         }
     }
 
@@ -52,12 +56,18 @@ public class ConcretePowderStairsBlock extends StairBlock implements CustomConcr
         BlockGetter blockgetter = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
         BlockState blockstate = blockgetter.getBlockState(blockpos);
-        return CustomConcretePowderBlock.shouldSolidify(blockgetter, blockpos, blockstate) ? this.concrete.defaultBlockState() : super.getStateForPlacement(context);
+        BlockState nextState = super.getStateForPlacement(context);
+        return CustomConcretePowderBlock.shouldSolidify(blockgetter, blockpos, blockstate) ? waterlogged(context.getLevel(), blockpos, this.concrete.withPropertiesOf(nextState)) : nextState;
     }
 
     @Override
     protected BlockState updateShape(BlockState state, Direction dir, BlockState newState, LevelAccessor levelAccessor, BlockPos pos1, BlockPos pos2) {
-        return CustomConcretePowderBlock.touchesLiquid(levelAccessor, pos1, state) ? this.concrete.defaultBlockState() : super.updateShape(state, dir, newState, levelAccessor, pos1, pos2);
+        BlockState nextState = super.updateShape(state, dir, newState, levelAccessor, pos1, pos2);
+        if (CustomConcretePowderBlock.touchesLiquid(levelAccessor, pos1, nextState)) {
+            return this.concrete.withPropertiesOf(nextState);
+        }
+        levelAccessor.scheduleTick(pos1, this, this.getDelayAfterPlace());
+        return nextState;
     }
 
     @Override

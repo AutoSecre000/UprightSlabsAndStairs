@@ -3,6 +3,7 @@ package cn.autosec.onecore.uss.registry;
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.Utils;
 import cn.autosec.onecore.uss.definition.custom.block.normal.concrete.ConcretePowderSlabBlock;
+import cn.autosec.onecore.uss.definition.custom.block.normal.concrete.ConcretePowderStairsBlock;
 import cn.autosec.onecore.uss.definition.custom.block.normal.glass.*;
 import cn.autosec.onecore.uss.definition.custom.block.upright.glass.*;
 import cn.autosec.onecore.uss.definition.lib.ItemLib;
@@ -272,7 +273,8 @@ public class ModBlocks {
     public static final ModBlock PURPLE_CONCRETE_UPRIGHT_STAIRS = registerUprightStairsBlock("purple_concrete_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE).requiresCorrectToolForDrops()));
     public static final ModBlock MAGENTA_CONCRETE_UPRIGHT_STAIRS = registerUprightStairsBlock("magenta_concrete_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE).requiresCorrectToolForDrops()));
     public static final ModBlock PINK_CONCRETE_UPRIGHT_STAIRS = registerUprightStairsBlock("pink_concrete_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE).requiresCorrectToolForDrops()));
-    public static final ModBlock WHITE_CONCRETE_POWDER_SLAB = registerSlabBlock("white_concrete_powder_slab", () -> new ConcretePowderSlabBlock(WHITE_CONCRETE_SLAB.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).requiresCorrectToolForDrops()));
+    public static final ModBlock WHITE_CONCRETE_POWDER_SLAB = registerSlabBlock("white_concrete_powder_slab", () -> new ConcretePowderSlabBlock(WHITE_CONCRETE_SLAB.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
+    public static final ModBlock WHITE_CONCRETE_POWDER_STAIRS = registerStairsBlock("white_concrete_powder_stairs", () -> new ConcretePowderStairsBlock(WHITE_CONCRETE_STAIRS.get(), Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE)));
 
     private static final List<BlockLib> blockLib = new ArrayList<>();
 
@@ -461,7 +463,8 @@ public class ModBlocks {
             blockLib.add(new BlockLib(PURPLE_CONCRETE_UPRIGHT_STAIRS, "purple_concrete_upright_stairs").locale("Purple Concrete Upright Stairs", "紫色混凝土楼梯（竖直）").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.PURPLE_CONCRETE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(MAGENTA_CONCRETE_UPRIGHT_STAIRS, "magenta_concrete_upright_stairs").locale("Magenta Concrete Upright Stairs", "品红色混凝土楼梯（竖直）").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.MAGENTA_CONCRETE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(PINK_CONCRETE_UPRIGHT_STAIRS, "pink_concrete_upright_stairs").locale("Pink Concrete Upright Stairs", "粉红色混凝土楼梯（竖直）").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.PINK_CONCRETE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(WHITE_CONCRETE_POWDER_SLAB, "white_concrete_powder_slab").locale("White Concrete Powder Slab", "白色混凝土粉末台阶").slab().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.WHITE_CONCRETE_POWDER).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(WHITE_CONCRETE_POWDER_SLAB, "white_concrete_powder_slab").locale("White Concrete Powder Slab", "白色混凝土粉末台阶").slab().texture(Blocks.WHITE_CONCRETE_POWDER).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(WHITE_CONCRETE_POWDER_STAIRS, "white_concrete_powder_stairs").locale("White Concrete Powder Stairs", "白色混凝土粉末台阶").stairs().texture(Blocks.WHITE_CONCRETE_POWDER).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
         }
         return blockLib;
     }

@@ -1,6 +1,5 @@
 package cn.autosec.onecore.uss.definition.custom.block.normal.concrete;
 
-import cn.autosec.onecore.uss.registry.ModBlockTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;

@@ -41,16 +41,16 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
         this.concrete = concrete;
     }
 
-    private BlockState getNextBlockState(Level level, BlockPos pos, BlockState state) {
+    private BlockState waterlogged(Level level, BlockPos pos, BlockState state) {
         FluidState fluidstate = level.getFluidState(pos);
         return state.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
     }
 
     private boolean isFree(BlockState selfState, BlockState state) {
         boolean isFree;
-        if (state.is(selfState.getBlock()) && state.getValue(TYPE) == SlabType.BOTTOM) {
+        if (selfState.getValue(TYPE) == SlabType.TOP) {
             isFree = true;
-        } else if (selfState.getValue(TYPE) == SlabType.TOP) {
+        } else if (state.is(this) && state.getValue(TYPE) == SlabType.BOTTOM) {
             isFree = true;
         } else {
             isFree = state.isAir() || state.is(BlockTags.FIRE) || state.liquid() || state.canBeReplaced();
@@ -61,20 +61,22 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
 
     @Override
     public void onLand(Level level, BlockPos pos, BlockState state, BlockState otherState, FallingBlockEntity entity) {
-        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]\nstate:{}\notherState:{}", state, otherState);
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]\nstate:{} pos:{}\notherState:{}", state, pos, otherState);
         if (CustomConcretePowderBlock.shouldSolidify(level, pos, state, otherState.getFluidState())) {
             if (otherState.is(this.concrete) && otherState.getValue(TYPE) == SlabType.BOTTOM) {
-                level.setBlock(pos, getNextBlockState(level, pos, this.concrete.withPropertiesOf(state).setValue(TYPE, SlabType.DOUBLE)), 3);
+                level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state).setValue(TYPE, SlabType.DOUBLE)), 3);
             } else if (!otherState.is(this.concrete)) {
-                level.setBlock(pos, getNextBlockState(level, pos, this.concrete.withPropertiesOf(state).setValue(TYPE, SlabType.BOTTOM)), 3);
+                level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state).setValue(TYPE, SlabType.BOTTOM)), 3);
             } else {
-                level.setBlock(pos, getNextBlockState(level, pos, this.concrete.withPropertiesOf(state)), 3);
+                level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state)), 3);
             }
         } else {
             if (otherState.is(state.getBlock()) && otherState.getValue(TYPE) == SlabType.BOTTOM) {
-                level.setBlock(pos, getNextBlockState(level, pos, state.setValue(TYPE, SlabType.DOUBLE)), 3);
+                level.setBlock(pos, waterlogged(level, pos, state.setValue(TYPE, SlabType.DOUBLE)), 3);
+            } else if (state.getValue(TYPE) == SlabType.DOUBLE) {
+                level.setBlock(pos, waterlogged(level, pos, state.setValue(TYPE, SlabType.DOUBLE)), 3);
             } else if (isFree(state, otherState)) {
-                level.setBlock(pos, getNextBlockState(level, pos, state.setValue(TYPE, SlabType.BOTTOM)), 3);
+                level.setBlock(pos, waterlogged(level, pos, state.setValue(TYPE, SlabType.BOTTOM)), 3);
             }
         }
     }
@@ -85,9 +87,9 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
         BlockPos blockpos = context.getClickedPos();
         BlockState blockstate = blockgetter.getBlockState(blockpos);
         BlockState nextState = super.getStateForPlacement(context);
-        OneCore.LOGGER.info("[ConcretePowderSlabBlock:getStateForPlacement]\nblockstate:{}\nnextState:{}", blockstate, nextState);
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:getStateForPlacement]\nblockstate:{} pos:{}\nnextState:{}", blockstate, blockpos, nextState);
         if (CustomConcretePowderBlock.shouldSolidify(blockgetter, blockpos, blockstate)) {
-            nextState = getNextBlockState(context.getLevel(), blockpos, this.concrete.withPropertiesOf(nextState));
+            nextState = waterlogged(context.getLevel(), blockpos, this.concrete.withPropertiesOf(nextState));
             OneCore.LOGGER.info("[ConcretePowderSlabBlock:getStateForPlacement]shouldSolidify->>\nnextState:{}", nextState);
         }
         return nextState;
@@ -96,18 +98,26 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
     @Override
     protected BlockState updateShape(BlockState state, Direction dir, BlockState newState, LevelAccessor levelAccessor, BlockPos pos1, BlockPos pos2) {
         BlockState nextState = super.updateShape(state, dir, newState, levelAccessor, pos1, pos2);
-        OneCore.LOGGER.info("[ConcretePowderSlabBlock:updateShape]\nstate:{}\nnextState:{}", state, nextState);
-        return CustomConcretePowderBlock.touchesLiquid(levelAccessor, pos1, nextState) ? this.concrete.withPropertiesOf(nextState) : nextState;
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:updateShape]\nstate:{} pos1:{}\nnextState:{} pos2:{}",
+                state, pos1, nextState, pos2);
+        if (CustomConcretePowderBlock.touchesLiquid(levelAccessor, pos1, nextState)) {
+            OneCore.LOGGER.info("[ConcretePowderSlabBlock:updateShape]\ntouchesLiquid->>\nnextState:{} pos2:{}",
+                    nextState, pos2);
+            return this.concrete.withPropertiesOf(nextState);
+        }
+        levelAccessor.scheduleTick(pos1, this, this.getDelayAfterPlace());
+        return nextState;
     }
 
     @Override
     protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState otherState, boolean flag) {
-        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onPlace]\nstate:{}\notherState:{}", state, otherState);
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onPlace]\nstate:{} pos:{}\notherState:{}", state, pos, otherState);
         level.scheduleTick(pos, this, this.getDelayAfterPlace());
     }
 
     @Override
     protected void tick(BlockState state, ServerLevel serverLevel, BlockPos pos, RandomSource randomSource) {
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:tick]\nstate:{} pos:{}", state, pos);
         if (isFree(state, serverLevel.getBlockState(pos.below())) && pos.getY() >= serverLevel.getMinBuildHeight()) {
             FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(serverLevel, pos, state);
             this.falling(fallingblockentity);
