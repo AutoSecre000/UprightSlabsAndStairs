@@ -97,7 +97,7 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
     protected BlockState updateShape(BlockState state, Direction dir, BlockState newState, LevelAccessor levelAccessor, BlockPos pos1, BlockPos pos2) {
         BlockState nextState = super.updateShape(state, dir, newState, levelAccessor, pos1, pos2);
         OneCore.LOGGER.info("[ConcretePowderSlabBlock:updateShape]\nstate:{}\nnextState:{}", state, nextState);
-        return CustomConcretePowderBlock.touchesLiquid(levelAccessor, pos1, state) ? this.concrete.withPropertiesOf(nextState) : nextState;
+        return CustomConcretePowderBlock.touchesLiquid(levelAccessor, pos1, nextState) ? this.concrete.withPropertiesOf(nextState) : nextState;
     }
 
     @Override
