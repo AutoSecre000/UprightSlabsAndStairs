@@ -2,10 +2,10 @@ package cn.autosec.onecore.uss.definition.custom.block.normal.concrete;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.ConcretePowderBlock;
 import net.minecraft.world.level.block.Fallable;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
@@ -58,6 +58,6 @@ public interface CustomConcretePowderBlock extends Fallable {
     }
 
     static boolean isFree(BlockState state) {
-        return state.isAir() || state.is(BlockTags.FIRE) || state.liquid() || state.canBeReplaced();
+        return ConcretePowderBlock.isFree(state);
     }
 }
