@@ -65,7 +65,7 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
     @Override
     public void onLand(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state,
                        @NotNull BlockState otherState, @NotNull FallingBlockEntity entity) {
-        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]\nstate:{} pos:{}\notherState:{}", state, pos, otherState);
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]\nstate:{} pos:{} \notherState:{}", state, pos, otherState);
         if (CustomConcretePowderBlock.shouldSolidify(level, pos, state, otherState.getFluidState())) {
             OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]shouldSolidify");
             if (otherState.is(this.concrete) && otherState.getValue(TYPE) == SlabType.BOTTOM) {
