@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -602,7 +601,7 @@ public class ModBlocks {
                 return blockLib.itemLib;
             }
         }
-        return localBlockLib.get(0).itemLib;
+        return localBlockLib.getFirst().itemLib;
     }
 
     public static void register(IEventBus eventBus) {
