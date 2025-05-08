@@ -12,17 +12,27 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.FallingBlockEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
+import net.minecraft.world.phys.Vec3;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcretePowderBlock {
     public static final MapCodec<ConcretePowderSlabBlock> CODEC = RecordCodecBuilder.mapCodec(
@@ -48,14 +58,17 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
 
     private boolean isFree(BlockState selfState, BlockState state) {
         boolean isFree;
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:isFree]\nselfState:{}\nstate:{}", selfState, state);
         if (selfState.getValue(TYPE) == SlabType.TOP) {
+            OneCore.LOGGER.info("[ConcretePowderSlabBlock:isFree]is top slab");
             isFree = true;
         } else if (state.is(this) && state.getValue(TYPE) == SlabType.BOTTOM) {
+            OneCore.LOGGER.info("[ConcretePowderSlabBlock:isFree]over bottom slab");
             isFree = true;
         } else {
             isFree = state.isAir() || state.is(BlockTags.FIRE) || state.liquid() || state.canBeReplaced();
         }
-        OneCore.LOGGER.info("[ConcretePowderSlabBlock:isFree]isFree:{}\nselfState:{}\nstate:{}", isFree, selfState, state);
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:isFree]isFree:{}", isFree);
         return isFree;
     }
 
@@ -63,19 +76,27 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
     public void onLand(Level level, BlockPos pos, BlockState state, BlockState otherState, FallingBlockEntity entity) {
         OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]\nstate:{} pos:{}\notherState:{}", state, pos, otherState);
         if (CustomConcretePowderBlock.shouldSolidify(level, pos, state, otherState.getFluidState())) {
+            OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]shouldSolidify");
             if (otherState.is(this.concrete) && otherState.getValue(TYPE) == SlabType.BOTTOM) {
+                OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]over bottom concrete slab");
                 level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state).setValue(TYPE, SlabType.DOUBLE)), 3);
             } else if (!otherState.is(this.concrete)) {
+                OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]change to bottom concrete slab");
                 level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state).setValue(TYPE, SlabType.BOTTOM)), 3);
             } else {
+                OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]change to concrete slab");
                 level.setBlock(pos, waterlogged(level, pos, this.concrete.withPropertiesOf(state)), 3);
             }
         } else {
+            OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]should not Solidify");
             if (otherState.is(state.getBlock()) && otherState.getValue(TYPE) == SlabType.BOTTOM) {
+                OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]over bottom slab");
                 level.setBlock(pos, waterlogged(level, pos, state.setValue(TYPE, SlabType.DOUBLE)), 3);
             } else if (state.getValue(TYPE) == SlabType.DOUBLE) {
+                OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]is double slab");
                 level.setBlock(pos, waterlogged(level, pos, state.setValue(TYPE, SlabType.DOUBLE)), 3);
             } else if (isFree(state, otherState)) {
+                OneCore.LOGGER.info("[ConcretePowderSlabBlock:onLand]change to bottom slab");
                 level.setBlock(pos, waterlogged(level, pos, state.setValue(TYPE, SlabType.BOTTOM)), 3);
             }
         }
@@ -116,10 +137,20 @@ public class ConcretePowderSlabBlock extends SlabBlock implements CustomConcrete
     }
 
     @Override
+    public void onBrokenAfterFall(Level level, BlockPos pos, FallingBlockEntity fallingBlockEntity) {
+        BlockState blockstate = fallingBlockEntity.getBlockState();
+        OneCore.LOGGER.info("[ConcretePowderSlabBlock:onBrokenAfterFall]\nblockstate:{} pos:{}", blockstate, pos);
+        if (blockstate.getValue(TYPE) == SlabType.DOUBLE) {
+            fallingBlockEntity.spawnAtLocation(this);
+        }
+    }
+
+    @Override
     protected void tick(BlockState state, ServerLevel serverLevel, BlockPos pos, RandomSource randomSource) {
         OneCore.LOGGER.info("[ConcretePowderSlabBlock:tick]\nstate:{} pos:{}", state, pos);
         if (isFree(state, serverLevel.getBlockState(pos.below())) && pos.getY() >= serverLevel.getMinBuildHeight()) {
             FallingBlockEntity fallingblockentity = FallingBlockEntity.fall(serverLevel, pos, state);
+            OneCore.LOGGER.info("[ConcretePowderSlabBlock:tick]falling");
             this.falling(fallingblockentity);
         }
     }
