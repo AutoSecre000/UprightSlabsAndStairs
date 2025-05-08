@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_west",
+  "textures": {
+    "outer": "minecraft:block/yellow_concrete",
+    "inner": "minecraft:block/yellow_concrete",
+    "top": "minecraft:block/yellow_concrete",
+    "bottom": "minecraft:block/yellow_concrete"
+  }
+}

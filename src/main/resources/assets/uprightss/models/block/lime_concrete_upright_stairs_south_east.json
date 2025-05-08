@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/lime_concrete",
+    "inner": "minecraft:block/lime_concrete",
+    "top": "minecraft:block/lime_concrete",
+    "bottom": "minecraft:block/lime_concrete"
+  }
+}

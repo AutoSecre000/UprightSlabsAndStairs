@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_south",
+  "textures": {
+    "front": "minecraft:block/yellow_concrete_powder",
+    "back": "minecraft:block/yellow_concrete_powder",
+    "side": "minecraft:block/yellow_concrete_powder",
+    "top": "minecraft:block/yellow_concrete_powder",
+    "bottom": "minecraft:block/yellow_concrete_powder"
+  }
+}
