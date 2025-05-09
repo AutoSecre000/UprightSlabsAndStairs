@@ -11,10 +11,14 @@ This module adds vertical versions of all the slabs and stairs in the original M
 ### 原版中缺失的台阶和楼梯：
 
 - 平滑石楼梯（分成平滑与横纹两种样式）
+- 玻璃台阶、楼梯
+- 各种颜色的混凝土粉末、混凝土台阶、楼梯
 
 ### The missing slabs and stairs in the original game:
 
 - Smooth stone stairs (divided into smooth and cross-grained styles)
+- Glass slabs and stairs
+- Concrete, concrete powder slabs and stairs of all Colors
 
 ### 如下对应材质的竖直台阶和竖直楼梯：
 
@@ -37,6 +41,8 @@ This module adds vertical versions of all the slabs and stairs in the original M
 - 氧化的切制铜、锈蚀的切制铜、斑驳的切制铜、切制铜
 - 涂蜡的氧化切制铜、涂蜡的锈蚀切制铜、涂蜡的斑驳切制铜、涂蜡的切制铜
 - 深板岩圆石、磨制深板岩、深板岩瓦、深板岩砖
+- 玻璃
+- 各种颜色的混凝土粉末、混凝土
 
 ### The upright slabs and upright stairs corresponding to the following materials:
 
@@ -59,16 +65,18 @@ This module adds vertical versions of all the slabs and stairs in the original M
 - Oxidized cut copper, weathered cut copper, exposed cut copper, cut copper
 - Waxed oxidized cut copper, waxed weathered cut copper, waxed exposed cut copper, waxed cut copper
 - Cobbled deep slate, polished deep slate, deep slate tile, deep slate brick
+- Glass
+- Concrete, concrete powder slabs and stairs of all Colors
 
 ## 新增方块（开发中）| New Blocks (Under Development)
 
-### 以下方块仍然在开发中，贴图可能存在问题：
+### 以下方块仍然在开发中，可能存在问题：
 
-- 玻璃台阶、楼梯以及它们的竖直版本
+- 混凝土粉末台阶的物理效果
 
-### The following blocks are still under development and there might be some display problems.
+### The following blocks are still under development and there might be some problems.
 
-- Glass slabs, stairs and their upright versions.
+- The physical effects of concrete powder slabs
 
 ## 相关信息 | Other Information
 
