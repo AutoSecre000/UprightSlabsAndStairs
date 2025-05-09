@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "uprightss",
+  "key": {
+    "#": {
+      "item": "minecraft:light_blue_concrete_powder"
+    }
+  },
+  "pattern": [
+    "###",
+    "## ",
+    "#  "
+  ],
+  "result": {
+    "count": 4,
+    "id": "uprightss:light_blue_concrete_powder_upright_stairs"
+  }
+}

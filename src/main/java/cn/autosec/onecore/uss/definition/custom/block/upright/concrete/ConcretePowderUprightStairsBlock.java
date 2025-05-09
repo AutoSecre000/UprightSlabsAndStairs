@@ -1,11 +1,11 @@
 package cn.autosec.onecore.uss.definition.custom.block.upright.concrete;
 
 import cn.autosec.onecore.uss.definition.custom.block.normal.concrete.CustomConcretePowderBlock;
+import cn.autosec.onecore.uss.definition.custom.block.upright.UprightStairsBlock;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.StairsBlock;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -23,9 +23,9 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.NotNull;
 
-public class ConcretePowderUprightStairsBlock extends StairsBlock implements CustomConcretePowderBlock {
+public class ConcretePowderUprightStairsBlock extends UprightStairsBlock implements CustomConcretePowderBlock {
     public static final MapCodec<ConcretePowderUprightStairsBlock> CODEC = RecordCodecBuilder.mapCodec(
-            p_341829_ -> p_341829_.group(Registries.BLOCK.getCodec().fieldOf("concrete").forGetter(p_313163_ -> p_313163_.concrete), BlockState.CODEC.fieldOf("base_state").forGetter(p_309296_ -> p_309296_.baseBlockState), createSettingsCodec())
+            p_341829_ -> p_341829_.group(Registries.BLOCK.getCodec().fieldOf("concrete").forGetter(p_313163_ -> p_313163_.concrete), createSettingsCodec())
                     .apply(p_341829_, ConcretePowderUprightStairsBlock::new)
     );
     private final Block concrete;
@@ -34,8 +34,8 @@ public class ConcretePowderUprightStairsBlock extends StairsBlock implements Cus
         return CODEC;
     }
 
-    public ConcretePowderUprightStairsBlock(Block concrete, BlockState blockState, Settings properties) {
-        super(blockState, properties);
+    public ConcretePowderUprightStairsBlock(Block concrete, Settings properties) {
+        super(properties);
         this.concrete = concrete;
     }
 
