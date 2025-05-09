@@ -27,7 +27,7 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class UprightSlabBlock extends Block implements Waterloggable {
+public class UprightSlabBlock extends Block implements Waterloggable {
     public static final EnumProperty<ModSlabTypes> TYPE = ModBlocks.UPRIGHT_SLAB_TYPE;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected static final VoxelShape N_AABB = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 8.0D);

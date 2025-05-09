@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 
-public abstract class UprightStairsBlock extends Block implements Waterloggable {
+public class UprightStairsBlock extends Block implements Waterloggable {
     public static final EnumProperty<ModStairTypes> TYPE = ModBlocks.UPRIGHT_STAIR_TYPE;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     protected static final VoxelShape NW_INNER = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 8.0D, 16.0D, 8.0D);
