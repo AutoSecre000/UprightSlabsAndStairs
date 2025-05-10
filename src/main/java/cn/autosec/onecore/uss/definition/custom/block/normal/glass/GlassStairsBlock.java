@@ -2,7 +2,6 @@ package cn.autosec.onecore.uss.definition.custom.block.normal.glass;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,7 +17,7 @@ public class GlassStairsBlock extends StairBlock {
     }
 
     public boolean skipRendering(BlockState state1, BlockState state2, Direction direction) {
-        return state2.is(this) ? true : super.skipRendering(state1, state2, direction);
+        return super.skipRendering(state1, state2, direction);
     }
 
     public VoxelShape getVisualShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {

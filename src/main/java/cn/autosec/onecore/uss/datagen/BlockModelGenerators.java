@@ -94,14 +94,14 @@ public class BlockModelGenerators extends BlockStateProvider {
                 if (blockLib.isSimpleCube) {
                     if (blockLib.isSlab) {
                         slabBlock(blockLib.modRegistry.get(), blockLib.texture, blockLib.texture,
-                                blockLib.isGlass ? "cutout" : "solid");
+                                blockLib.isGlass ? (blockLib.cutout ? "cutout" : "translucent") : "solid");
                         simpleBlockItem(blockLib.modRegistry.get(), models().slab(blockLib.name,
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture,
                                 blockLib.texture, blockLib.texture));
                     } else if (blockLib.isStairs) {
                         stairsBlock(blockLib.modRegistry.get(),
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture, blockLib.texture,
-                                blockLib.texture, blockLib.isGlass ? "cutout" : "solid");
+                                blockLib.texture, blockLib.isGlass ? (blockLib.cutout ? "cutout" : "translucent") : "solid");
                         simpleBlockItem(blockLib.modRegistry.get(), models().stairs(blockLib.name,
                                 blockLib.hasSideTexture ? blockLib.sideTexture : blockLib.texture,
                                 blockLib.texture, blockLib.texture));

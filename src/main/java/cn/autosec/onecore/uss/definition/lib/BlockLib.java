@@ -24,6 +24,7 @@ public class BlockLib extends ModRegistryLib<Block> {
     public boolean isStairs = false;
     public boolean isWooden = false;
     public boolean isGlass = false;
+    public boolean cutout = false;
     public boolean isCopper = false;
     public boolean isWaxed = false;
     public ModItem dropItem;
@@ -141,6 +142,12 @@ public class BlockLib extends ModRegistryLib<Block> {
 
     public BlockLib translucent() {
         this.isGlass = true;
+        return this;
+    }
+
+    public BlockLib translucent(boolean cutout) {
+        this.isGlass = true;
+        this.cutout = cutout;
         return this;
     }
 
