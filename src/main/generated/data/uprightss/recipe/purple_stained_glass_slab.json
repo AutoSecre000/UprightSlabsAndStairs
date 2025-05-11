@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "uprightss",
+  "key": {
+    "#": {
+      "item": "minecraft:purple_stained_glass"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "count": 6,
+    "id": "uprightss:purple_stained_glass_slab"
+  }
+}

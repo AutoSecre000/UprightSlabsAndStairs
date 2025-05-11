@@ -1,0 +1,11 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "front": "minecraft:block/green_stained_glass",
+    "back": "minecraft:block/green_stained_glass",
+    "side": "minecraft:block/green_stained_glass",
+    "top": "minecraft:block/green_stained_glass",
+    "bottom": "minecraft:block/green_stained_glass"
+  }
+}

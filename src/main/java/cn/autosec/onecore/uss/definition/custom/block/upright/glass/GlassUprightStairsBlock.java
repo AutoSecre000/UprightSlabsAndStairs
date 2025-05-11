@@ -15,7 +15,7 @@ public class GlassUprightStairsBlock extends UprightStairsBlock {
 
     @Override
     protected boolean isSideInvisible(BlockState state, BlockState stateFrom, net.minecraft.util.math.Direction direction) {
-        return state == stateFrom ? true : super.isSideInvisible(state, stateFrom, direction);
+        return super.isSideInvisible(state, stateFrom, direction);
     }
 
     @Override

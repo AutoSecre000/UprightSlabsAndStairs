@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "uprightss",
+  "key": {
+    "#": {
+      "item": "minecraft:pink_stained_glass"
+    }
+  },
+  "pattern": [
+    "###",
+    "## ",
+    "#  "
+  ],
+  "result": {
+    "count": 4,
+    "id": "uprightss:pink_stained_glass_upright_stairs"
+  }
+}

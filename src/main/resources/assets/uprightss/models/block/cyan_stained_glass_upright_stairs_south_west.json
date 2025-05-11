@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_west",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "outer": "minecraft:block/cyan_stained_glass",
+    "inner": "minecraft:block/cyan_stained_glass",
+    "top": "minecraft:block/cyan_stained_glass",
+    "bottom": "minecraft:block/cyan_stained_glass"
+  }
+}
