@@ -1,0 +1,11 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "front": "minecraft:block/magenta_stained_glass",
+    "back": "minecraft:block/magenta_stained_glass",
+    "side": "minecraft:block/magenta_stained_glass",
+    "top": "minecraft:block/magenta_stained_glass",
+    "bottom": "minecraft:block/magenta_stained_glass"
+  }
+}

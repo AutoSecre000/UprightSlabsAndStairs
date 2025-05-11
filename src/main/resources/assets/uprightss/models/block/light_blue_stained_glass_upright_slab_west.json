@@ -1,0 +1,11 @@
+{
+  "parent": "uprightss:block/upright_slab_west",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "front": "minecraft:block/light_blue_stained_glass",
+    "back": "minecraft:block/light_blue_stained_glass",
+    "side": "minecraft:block/light_blue_stained_glass",
+    "top": "minecraft:block/light_blue_stained_glass",
+    "bottom": "minecraft:block/light_blue_stained_glass"
+  }
+}

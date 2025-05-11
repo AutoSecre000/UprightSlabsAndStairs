@@ -18,7 +18,7 @@ public class GlassStairsBlock extends StairBlock {
     }
 
     public boolean skipRendering(BlockState state1, BlockState state2, Direction direction) {
-        return state2.is(this) ? true : super.skipRendering(state1, state2, direction);
+        return super.skipRendering(state1, state2, direction);
     }
 
     public VoxelShape getVisualShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {

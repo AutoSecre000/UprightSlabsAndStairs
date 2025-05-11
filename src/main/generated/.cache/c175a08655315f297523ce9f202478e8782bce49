@@ -1,0 +1,11 @@
+// 1.21	2025-05-09T23:55:06.9092338	Upright Slabs & Stairs/Tags for minecraft:block
+852f39dc0a6e7127d61fd020333cc91484a06960 data\minecraft\tags\block\slabs.json
+132478f28e0a0fbf58268f9d07bb7aaa6a1b32cf data\minecraft\tags\block\mineable\axe.json
+608fe0b7ce9c45745a06d7f5409f376e66f09582 data\uprightss\tags\block\onecore_copper.json
+adae9611e2b8d011f17ba50e5daf6d941ab503e1 data\minecraft\tags\block\stairs.json
+a4246be70268fee763cc139df322ff6c7516cc5d data\uprightss\tags\block\onecore_waxed.json
+9dd17a328947ec0a5a91ccc73aa5aeca7c0027f0 data\minecraft\tags\block\mineable\pickaxe.json
+70eea7943574e6054e3730bcce9dad294f1e6e42 data\uprightss\tags\block\onecore_blocks.json
+608fe0b7ce9c45745a06d7f5409f376e66f09582 data\minecraft\tags\block\needs_stone_tool.json
+6f3fb33f1093d5d78cda66f7e353c1cc084f0ca7 data\minecraft\tags\block\wooden_slabs.json
+99f297c35514e85f8c1d8150ef0edf3fbfa75dd3 data\minecraft\tags\block\wooden_stairs.json
