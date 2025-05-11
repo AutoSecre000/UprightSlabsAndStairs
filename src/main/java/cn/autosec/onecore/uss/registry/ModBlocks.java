@@ -520,8 +520,8 @@ public class ModBlocks {
             blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_STAIRS, "deepslate_tile_upright_stairs").locale("Deepslate Tile Upright Stairs", "深板岩瓦楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_SLAB, "deepslate_brick_upright_slab").locale("Deepslate Brick Upright Slab", "深板岩砖台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_STAIRS, "deepslate_brick_upright_stairs").locale("Deepslate Brick Upright Stairs", "深板岩砖楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(GLASS_UPRIGHT_SLAB, "glass_upright_slab").locale("Glass Upright Slab", "玻璃台阶（竖直）").slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(GLASS_UPRIGHT_SLAB, "glass_upright_slab").locale("Glass Upright Slab", "玻璃台阶（竖直）").slab().translucent(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().translucent(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
 
             blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().translucent(true).texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().translucent(true).texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
