@@ -24,7 +24,7 @@ public class BlockLib extends ModRegistryLib<ModBlock> {
     public boolean isStairs = false;
     public boolean isWooden = false;
     public boolean isGlass = false;
-    public boolean cutout;
+    public boolean cutout = false;
     public boolean isCopper = false;
     public boolean isWaxed = false;
     public ModItem dropItem;
