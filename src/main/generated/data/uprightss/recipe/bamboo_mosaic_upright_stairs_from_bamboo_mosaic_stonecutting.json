@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:bamboo_mosaic"
+  },
+  "result": {
+    "count": 1,
+    "id": "uprightss:bamboo_mosaic_upright_stairs"
+  }
+}
