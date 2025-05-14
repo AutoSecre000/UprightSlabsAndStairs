@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/lime_terracotta",
+    "back": "minecraft:block/lime_terracotta",
+    "side": "minecraft:block/lime_terracotta",
+    "top": "minecraft:block/lime_terracotta",
+    "bottom": "minecraft:block/lime_terracotta"
+  }
+}

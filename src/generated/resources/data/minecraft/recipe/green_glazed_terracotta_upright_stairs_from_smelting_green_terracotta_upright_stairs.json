@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "group": "uprightss",
+  "ingredient": {
+    "item": "uprightss:green_terracotta_upright_stairs"
+  },
+  "result": {
+    "count": 1,
+    "id": "uprightss:green_glazed_terracotta_upright_stairs"
+  }
+}

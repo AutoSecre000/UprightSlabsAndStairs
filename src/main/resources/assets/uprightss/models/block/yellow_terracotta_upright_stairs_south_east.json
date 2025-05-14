@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_south_east",
+  "textures": {
+    "outer": "minecraft:block/yellow_terracotta",
+    "inner": "minecraft:block/yellow_terracotta",
+    "top": "minecraft:block/yellow_terracotta",
+    "bottom": "minecraft:block/yellow_terracotta"
+  }
+}

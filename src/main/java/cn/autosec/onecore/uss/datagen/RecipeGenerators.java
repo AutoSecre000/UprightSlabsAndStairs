@@ -1,6 +1,8 @@
 package cn.autosec.onecore.uss.datagen;
 
+import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.definition.lib.CraftingRecipeLib;
+import cn.autosec.onecore.uss.definition.lib.FurnaceRecipeLib;
 import cn.autosec.onecore.uss.definition.lib.StoneCutterRecipeLib;
 import cn.autosec.onecore.uss.registry.ModRecipes;
 import net.minecraft.core.HolderLookup;
@@ -25,6 +27,18 @@ public class RecipeGenerators extends RecipeProvider {
                     lib.recipeBuilder.save(output, getConversionRecipeName(lib.conversionInput, lib.converter));
                 } else {
                     lib.recipeBuilder.save(output);
+                }
+            }
+        }
+
+        List<FurnaceRecipeLib> furnaceRecipeLibs = ModRecipes.getFurnaceRecipes();
+        if (furnaceRecipeLibs != null) {
+            for (FurnaceRecipeLib furnaceRecipeLib : furnaceRecipeLibs) {
+                oreSmelting(output, List.of(furnaceRecipeLib.input), furnaceRecipeLib.category,
+                        furnaceRecipeLib.output, furnaceRecipeLib.exp, furnaceRecipeLib.time, OneCore.MODID);
+                if (furnaceRecipeLib.isOre) {
+                    oreBlasting(output, List.of(furnaceRecipeLib.input), furnaceRecipeLib.category,
+                            furnaceRecipeLib.output, furnaceRecipeLib.exp, furnaceRecipeLib.time / 2, OneCore.MODID);
                 }
             }
         }
