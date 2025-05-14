@@ -14,13 +14,15 @@ This module adds vertical versions of all the slabs and stairs in the original M
 - 玻璃台阶、楼梯
 - 染色玻璃台阶、楼梯
 - 各种颜色的混凝土粉末、混凝土台阶、楼梯
+- 各种颜色的陶瓦台阶、楼梯，各种颜色的带釉陶瓦台阶、楼梯
 
 ### The missing slabs and stairs in the original game:
 
 - Smooth stone stairs (divided into smooth and cross-grained styles)
 - Glass slabs and stairs
 - Stained Glass slabs and stairs
-- Concrete, concrete powder slabs and stairs of all Colors
+- Concrete, concrete powder slabs and stairs of all colors
+- Terracotta, gazed terracotta slabs and stairs of all colors
 
 ### 如下对应材质的竖直台阶和竖直楼梯：
 
@@ -45,6 +47,7 @@ This module adds vertical versions of all the slabs and stairs in the original M
 - 深板岩圆石、磨制深板岩、深板岩瓦、深板岩砖
 - 玻璃、染色玻璃
 - 各种颜色的混凝土粉末、混凝土
+- 各种颜色的陶瓦、带釉陶瓦
 
 ### The upright slabs and upright stairs corresponding to the following materials:
 
@@ -68,7 +71,8 @@ This module adds vertical versions of all the slabs and stairs in the original M
 - Waxed oxidized cut copper, waxed weathered cut copper, waxed exposed cut copper, waxed cut copper
 - Cobbled deep slate, polished deep slate, deep slate tile, deep slate brick
 - Glass, Stained Glass
-- Concrete, concrete powder slabs and stairs of all Colors
+- Concrete, concrete powder of all colors
+- Terracotta, gazed terracotta of all colors
 
 ## 新增方块（开发中）| New Blocks (Under Development)
 
