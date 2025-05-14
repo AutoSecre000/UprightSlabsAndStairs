@@ -1,0 +1,9 @@
+{
+  "parent": "uprightss:block/upright_stairs_north_east",
+  "textures": {
+    "outer": "minecraft:block/pink_glazed_terracotta",
+    "inner": "minecraft:block/pink_glazed_terracotta",
+    "top": "minecraft:block/pink_glazed_terracotta",
+    "bottom": "minecraft:block/pink_glazed_terracotta"
+  }
+}

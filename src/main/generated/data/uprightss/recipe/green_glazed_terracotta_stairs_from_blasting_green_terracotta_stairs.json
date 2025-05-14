@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 50,
+  "experience": 1.0,
+  "group": "uprightss",
+  "ingredient": {
+    "item": "uprightss:green_terracotta_stairs"
+  },
+  "result": {
+    "id": "uprightss:green_glazed_terracotta_stairs"
+  }
+}

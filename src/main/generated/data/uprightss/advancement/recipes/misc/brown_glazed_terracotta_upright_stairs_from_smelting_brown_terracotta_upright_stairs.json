@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_brown_terracotta_upright_stairs": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uprightss:brown_terracotta_upright_stairs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:brown_glazed_terracotta_upright_stairs_from_smelting_brown_terracotta_upright_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_brown_terracotta_upright_stairs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:brown_glazed_terracotta_upright_stairs_from_smelting_brown_terracotta_upright_stairs"
+    ]
+  }
+}
