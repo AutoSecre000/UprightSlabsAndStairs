@@ -1,0 +1,10 @@
+{
+  "parent": "uprightss:block/upright_slab_north",
+  "textures": {
+    "front": "minecraft:block/gray_terracotta",
+    "back": "minecraft:block/gray_terracotta",
+    "side": "minecraft:block/gray_terracotta",
+    "top": "minecraft:block/gray_terracotta",
+    "bottom": "minecraft:block/gray_terracotta"
+  }
+}

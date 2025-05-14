@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 40,
+  "experience": 1.0,
+  "group": "uprightss",
+  "ingredient": {
+    "item": "uprightss:red_terracotta_upright_slab"
+  },
+  "result": {
+    "id": "uprightss:red_glazed_terracotta_upright_slab"
+  }
+}
