@@ -1,43 +1,7 @@
 {
-    "parent": "block/block",
+    "parent": "uprightss:block/complex_stairs_inner",
     "render_type": "minecraft:cutout",
     "textures": {
-        "0": "uprightss:block/glass_upright",
-        "particle": "uprightss:block/glass_upright"
-    },
-    "elements": [
-        {
-            "from": [0, 0, 0],
-            "to": [16, 8, 16],
-            "faces": {
-                "north": {"uv": [4, 6, 8, 8], "texture": "#0", "cullface": "north"},
-                "east": {"uv": [0, 2, 4, 4], "texture": "#0", "cullface": "east"},
-                "south": {"uv": [0, 2, 4, 4], "texture": "#0", "cullface": "south"},
-                "west": {"uv": [0, 6, 4, 8], "texture": "#0", "cullface": "west"},
-                "up": {"uv": [4, 8, 8, 12], "texture": "#0"},
-                "down": {"uv": [0, 0, 4, 4], "texture": "#0", "cullface": "down"}
-            }
-        },
-        {
-            "from": [8, 8, 0],
-            "to": [16, 16, 16],
-            "faces": {
-                "north": {"uv": [4, 4, 6, 6], "texture": "#0", "cullface": "north"},
-                "east": {"uv": [0, 0, 4, 2], "texture": "#0", "cullface": "east"},
-                "south": {"uv": [2, 0, 4, 2], "texture": "#0", "cullface": "south"},
-                "west": {"uv": [4, 8, 8, 10], "texture": "#0"},
-                "up": {"uv": [2, 4, 4, 8], "texture": "#0", "cullface": "up"}
-            }
-        },
-        {
-            "from": [0, 8, 8],
-            "to": [8, 16, 16],
-            "faces": {
-                "north": {"uv": [10, 8, 12, 10], "texture": "#0"},
-                "south": {"uv": [0, 0, 2, 2], "texture": "#0", "cullface": "south"},
-                "west": {"uv": [2, 4, 4, 6], "texture": "#0", "cullface": "west"},
-                "up": {"uv": [0, 6, 2, 8], "texture": "#0", "cullface": "up"}
-            }
-        }
-    ]
+        "uv": "uprightss:block/glass_upright"
+    }
 }

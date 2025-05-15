@@ -1,23 +1,7 @@
 {
-    "parent": "block/block",
+    "parent": "uprightss:block/complex_upright_slab_north",
     "render_type": "minecraft:cutout",
     "textures": {
-        "0": "uprightss:block/glass_upright",
-        "particle": "uprightss:block/glass_upright"
-    },
-    "elements": [
-        {
-            "from": [0, 0, 0],
-            "to": [16, 16, 8],
-            "rotation": {"angle": 0, "axis": "y", "origin": [16, 16, 0]},
-            "faces": {
-                "north": {"uv": [0, 0, 4, 4], "texture": "#0", "cullface": "north"},
-                "east": {"uv": [8, 0, 10, 4], "texture": "#0", "cullface": "east"},
-                "south": {"uv": [0, 0, 4, 4], "texture": "#0", "cullface": "south"},
-                "west": {"uv": [8, 0, 10, 4], "texture": "#0", "cullface": "west"},
-                "up": {"uv": [4, 0, 8, 2], "texture": "#0", "cullface": "up"},
-                "down": {"uv": [4, 0, 8, 2], "texture": "#0", "cullface": "down"}
-            }
-        }
-    ]
+        "uv": "uprightss:block/glass_upright"
+    }
 }
