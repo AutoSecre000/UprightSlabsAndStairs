@@ -1,9 +1,7 @@
 {
-  "parent": "minecraft:block/outer_stairs",
+  "parent": "uprightss:block/complex_stairs_outer",
   "render_type": "minecraft:translucent",
   "textures": {
-    "bottom": "minecraft:block/gray_stained_glass",
-    "side": "minecraft:block/gray_stained_glass",
-    "top": "minecraft:block/gray_stained_glass"
+    "uv": "uprightss:block/gray_stained_glass_upright"
   }
 }

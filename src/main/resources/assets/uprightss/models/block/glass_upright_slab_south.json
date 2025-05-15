@@ -1,39 +1,7 @@
 {
-    "parent": "block/block",
+    "parent": "uprightss:block/complex_upright_slab_south",
     "render_type": "minecraft:cutout",
     "textures": {
-        "0": "uprightss:block/glass_upright_slab_top_bottom",
-        "1": "minecraft:block/glass",
-        "2": "uprightss:block/glass_upright_slab_left_right",
-        "particle": "uprightss:block/glass_upright_slab_left_right"
-    },
-    "elements": [
-        {
-            "from": [0, 0, 8],
-            "to": [16, 16, 16],
-            "faces": {
-                "north": {"uv": [0, 0, 16, 16], "texture": "#1", "cullface": "north"},
-                "east": {"uv": [0, 0, 8, 16], "texture": "#2", "cullface": "east"},
-                "south": {"uv": [0, 0, 16, 16], "texture": "#1", "cullface": "south"},
-                "west": {"uv": [0, 0, 8, 16], "texture": "#2", "cullface": "west"},
-                "up": {"uv": [0, 0, 16, 8], "texture": "#0", "cullface": "up"},
-                "down": {"uv": [0, 0, 16, 8], "texture": "#0", "cullface": "down"}
-            }
-        }
-    ],
-    "display": {
-        "thirdperson_lefthand": {
-            "rotation": [75, -135, 0],
-            "translation": [0, 2.5, 0],
-            "scale": [0.375, 0.375, 0.375]
-        },
-        "gui": {
-            "rotation": [30, -45, 0],
-            "translation": [-1.5, -0.75, 0],
-            "scale": [0.625, 0.625, 0.625]
-        },
-        "head": {
-            "rotation": [0, -90, 0]
-        }
+        "uv": "uprightss:block/glass_upright"
     }
 }

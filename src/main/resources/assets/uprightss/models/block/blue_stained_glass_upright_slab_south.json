@@ -1,11 +1,7 @@
 {
-  "parent": "uprightss:block/upright_slab_south",
+  "parent": "uprightss:block/complex_upright_slab_south",
   "render_type": "minecraft:translucent",
   "textures": {
-    "front": "minecraft:block/blue_stained_glass",
-    "back": "minecraft:block/blue_stained_glass",
-    "side": "minecraft:block/blue_stained_glass",
-    "top": "minecraft:block/blue_stained_glass",
-    "bottom": "minecraft:block/blue_stained_glass"
+    "uv": "uprightss:block/blue_stained_glass_upright"
   }
 }
