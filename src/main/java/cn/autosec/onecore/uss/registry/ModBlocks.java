@@ -2,11 +2,9 @@ package cn.autosec.onecore.uss.registry;
 
 import cn.autosec.onecore.uss.OneCore;
 import cn.autosec.onecore.uss.Utils;
-import cn.autosec.onecore.uss.definition.custom.block.normal.concrete.ConcretePowderSlabBlock;
-import cn.autosec.onecore.uss.definition.custom.block.normal.concrete.ConcretePowderStairsBlock;
+import cn.autosec.onecore.uss.definition.custom.block.normal.concrete.*;
 import cn.autosec.onecore.uss.definition.custom.block.normal.glass.*;
-import cn.autosec.onecore.uss.definition.custom.block.upright.concrete.ConcretePowderUprightSlabBlock;
-import cn.autosec.onecore.uss.definition.custom.block.upright.concrete.ConcretePowderUprightStairsBlock;
+import cn.autosec.onecore.uss.definition.custom.block.upright.concrete.*;
 import cn.autosec.onecore.uss.definition.custom.block.upright.glass.*;
 import cn.autosec.onecore.uss.definition.lib.ItemLib;
 import cn.autosec.onecore.uss.definition.custom.*;
@@ -90,6 +88,7 @@ public class ModBlocks {
     }
 
     /* Register blocks */
+    /* wood */
     public static final ModBlock OAK_UPRIGHT_SLAB = registerUprightSlabBlock("oak_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
     public static final ModBlock OAK_UPRIGHT_STAIRS = registerUprightStairsBlock("oak_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB)));
     public static final ModBlock SPRUCE_UPRIGHT_SLAB = registerUprightSlabBlock("spruce_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SPRUCE_SLAB)));
@@ -110,8 +109,15 @@ public class ModBlocks {
     public static final ModBlock BAMBOO_UPRIGHT_STAIRS = registerUprightStairsBlock("bamboo_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_SLAB)));
     public static final ModBlock BAMBOO_MOSAIC_UPRIGHT_SLAB = registerUprightSlabBlock("bamboo_mosaic_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_MOSAIC_SLAB)));
     public static final ModBlock BAMBOO_MOSAIC_UPRIGHT_STAIRS = registerUprightStairsBlock("bamboo_mosaic_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BAMBOO_MOSAIC_SLAB)));
+    public static final ModBlock CRIMSON_UPRIGHT_SLAB = registerUprightSlabBlock("crimson_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB)));
+    public static final ModBlock CRIMSON_UPRIGHT_STAIRS = registerUprightStairsBlock("crimson_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB)));
+    public static final ModBlock WARPED_UPRIGHT_SLAB = registerUprightSlabBlock("warped_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)));
+    public static final ModBlock WARPED_UPRIGHT_STAIRS = registerUprightStairsBlock("warped_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)));
+    /* stone */
     public static final ModBlock STONE_UPRIGHT_SLAB = registerUprightSlabBlock("stone_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock STONE_UPRIGHT_STAIRS = registerUprightStairsBlock("stone_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock SMOOTH_STONE_STAIRS = registerStairsBlock("smooth_stone_stairs", () -> new StairBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
+    public static final ModBlock SMOOTH_STONE_TRANSVERSE_STAIRS = registerStairsBlock("smooth_stone_transverse_stairs", () -> new StairBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
     public static final ModBlock SMOOTH_STONE_UPRIGHT_SLAB = registerUprightSlabBlock("smooth_stone_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock SMOOTH_STONE_UPRIGHT_STAIRS = registerUprightStairsBlock("smooth_stone_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock SANDSTONE_UPRIGHT_SLAB = registerUprightSlabBlock("sandstone_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SANDSTONE_SLAB).requiresCorrectToolForDrops()));
@@ -168,16 +174,21 @@ public class ModBlocks {
     public static final ModBlock POLISHED_ANDESITE_UPRIGHT_STAIRS = registerUprightStairsBlock("polished_andesite_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_ANDESITE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DIORITE_UPRIGHT_SLAB = registerUprightSlabBlock("diorite_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock DIORITE_UPRIGHT_STAIRS = registerUprightStairsBlock("diorite_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIORITE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock CRIMSON_UPRIGHT_SLAB = registerUprightSlabBlock("crimson_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB)));
-    public static final ModBlock CRIMSON_UPRIGHT_STAIRS = registerUprightStairsBlock("crimson_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRIMSON_SLAB)));
-    public static final ModBlock WARPED_UPRIGHT_SLAB = registerUprightSlabBlock("warped_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)));
-    public static final ModBlock WARPED_UPRIGHT_STAIRS = registerUprightStairsBlock("warped_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WARPED_SLAB)));
     public static final ModBlock BLACKSTONE_UPRIGHT_SLAB = registerUprightSlabBlock("blackstone_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock BLACKSTONE_UPRIGHT_STAIRS = registerUprightStairsBlock("blackstone_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BLACKSTONE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock POLISHED_BLACKSTONE_BRICK_UPRIGHT_SLAB = registerUprightSlabBlock("polished_blackstone_brick_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICK_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock POLISHED_BLACKSTONE_BRICK_UPRIGHT_STAIRS = registerUprightStairsBlock("polished_blackstone_brick_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_BRICK_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock POLISHED_BLACKSTONE_UPRIGHT_SLAB = registerUprightSlabBlock("polished_blackstone_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock POLISHED_BLACKSTONE_UPRIGHT_STAIRS = registerUprightStairsBlock("polished_blackstone_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_BLACKSTONE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock COBBLED_DEEPSLATE_UPRIGHT_SLAB = registerUprightSlabBlock("cobbled_deepslate_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock COBBLED_DEEPSLATE_UPRIGHT_STAIRS = registerUprightStairsBlock("cobbled_deepslate_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock POLISHED_DEEPSLATE_UPRIGHT_SLAB = registerUprightSlabBlock("polished_deepslate_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock POLISHED_DEEPSLATE_UPRIGHT_STAIRS = registerUprightStairsBlock("polished_deepslate_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock DEEPSLATE_TILE_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_tile_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_TILE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock DEEPSLATE_TILE_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_tile_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_TILE_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_brick_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
+    public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_brick_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
+    /* copper */
     public static final ModBlock CUT_COPPER_UPRIGHT_SLAB = registerUprightSlabBlock("cut_copper_upright_slab", () -> new CopperUprightSlabBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock CUT_COPPER_UPRIGHT_STAIRS = registerUprightStairsBlock("cut_copper_upright_stairs", () -> new CopperUprightStairsBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.ofFullCopy(Blocks.CUT_COPPER_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock EXPOSED_CUT_COPPER_UPRIGHT_SLAB = registerUprightSlabBlock("exposed_cut_copper_upright_slab", () -> new CopperUprightSlabBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.ofFullCopy(Blocks.EXPOSED_CUT_COPPER_SLAB).requiresCorrectToolForDrops()));
@@ -194,22 +205,7 @@ public class ModBlocks {
     public static final ModBlock WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS = registerUprightStairsBlock("waxed_weathered_cut_copper_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_SLAB = registerUprightSlabBlock("waxed_oxidized_cut_copper_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB).requiresCorrectToolForDrops()));
     public static final ModBlock WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS = registerUprightStairsBlock("waxed_oxidized_cut_copper_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock COBBLED_DEEPSLATE_UPRIGHT_SLAB = registerUprightSlabBlock("cobbled_deepslate_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock COBBLED_DEEPSLATE_UPRIGHT_STAIRS = registerUprightStairsBlock("cobbled_deepslate_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.COBBLED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock POLISHED_DEEPSLATE_UPRIGHT_SLAB = registerUprightSlabBlock("polished_deepslate_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock POLISHED_DEEPSLATE_UPRIGHT_STAIRS = registerUprightStairsBlock("polished_deepslate_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock DEEPSLATE_TILE_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_tile_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_TILE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock DEEPSLATE_TILE_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_tile_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_TILE_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_SLAB = registerUprightSlabBlock("deepslate_brick_upright_slab", () -> new UprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock DEEPSLATE_BRICK_UPRIGHT_STAIRS = registerUprightStairsBlock("deepslate_brick_upright_stairs", () -> new UprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_BRICK_SLAB).requiresCorrectToolForDrops()));
-    public static final ModBlock GLASS_UPRIGHT_SLAB = registerUprightSlabBlock("glass_upright_slab", () -> new GlassUprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-    public static final ModBlock GLASS_UPRIGHT_STAIRS = registerUprightStairsBlock("glass_upright_stairs", () -> new GlassUprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-
-    public static final ModBlock GLASS_SLAB = registerSlabBlock("glass_slab", () -> new GlassSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-    public static final ModBlock GLASS_STAIRS = registerStairsBlock("glass_stairs", () -> new GlassStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
-    public static final ModBlock SMOOTH_STONE_STAIRS = registerStairsBlock("smooth_stone_stairs", () -> new StairBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
-    public static final ModBlock SMOOTH_STONE_TRANSVERSE_STAIRS = registerStairsBlock("smooth_stone_transverse_stairs", () -> new StairBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.SMOOTH_STONE).requiresCorrectToolForDrops()));
-    /* Colored Blocks */
+    /* concrete */
     public static final ModBlock WHITE_CONCRETE_SLAB = registerSlabBlock("white_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_CONCRETE).requiresCorrectToolForDrops()));
     public static final ModBlock LIGHT_GRAY_CONCRETE_SLAB = registerSlabBlock("light_gray_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.LIGHT_GRAY_CONCRETE).requiresCorrectToolForDrops()));
     public static final ModBlock GRAY_CONCRETE_SLAB = registerSlabBlock("gray_concrete_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GRAY_CONCRETE).requiresCorrectToolForDrops()));
@@ -338,7 +334,11 @@ public class ModBlocks {
     public static final ModBlock PURPLE_CONCRETE_POWDER_UPRIGHT_STAIRS = registerUprightStairsBlock("purple_concrete_powder_upright_stairs", () -> new ConcretePowderUprightStairsBlock(PURPLE_CONCRETE_UPRIGHT_STAIRS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.PURPLE_CONCRETE)));
     public static final ModBlock MAGENTA_CONCRETE_POWDER_UPRIGHT_STAIRS = registerUprightStairsBlock("magenta_concrete_powder_upright_stairs", () -> new ConcretePowderUprightStairsBlock(MAGENTA_CONCRETE_UPRIGHT_STAIRS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.MAGENTA_CONCRETE)));
     public static final ModBlock PINK_CONCRETE_POWDER_UPRIGHT_STAIRS = registerUprightStairsBlock("pink_concrete_powder_upright_stairs", () -> new ConcretePowderUprightStairsBlock(PINK_CONCRETE_UPRIGHT_STAIRS.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_CONCRETE)));
-    /* Stained Glass */
+    /* glass */
+    public static final ModBlock GLASS_SLAB = registerSlabBlock("glass_slab", () -> new GlassSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
+    public static final ModBlock GLASS_STAIRS = registerStairsBlock("glass_stairs", () -> new GlassStairsBlock(Blocks.STONE_STAIRS.defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
+    public static final ModBlock GLASS_UPRIGHT_SLAB = registerUprightSlabBlock("glass_upright_slab", () -> new GlassUprightSlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
+    public static final ModBlock GLASS_UPRIGHT_STAIRS = registerUprightStairsBlock("glass_upright_stairs", () -> new GlassUprightStairsBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)));
     public static final ModBlock WHITE_STAINED_GLASS_SLAB = registerSlabBlock("white_stained_glass_slab", () -> new StainedGlassSlabBlock(DyeColor.WHITE, Blocks.WHITE_STAINED_GLASS));
     public static final ModBlock LIGHT_GRAY_STAINED_GLASS_SLAB = registerSlabBlock("light_gray_stained_glass_slab", () -> new StainedGlassSlabBlock(DyeColor.LIGHT_GRAY, Blocks.LIGHT_GRAY_STAINED_GLASS));
     public static final ModBlock GRAY_STAINED_GLASS_SLAB = registerSlabBlock("gray_stained_glass_slab", () -> new StainedGlassSlabBlock(DyeColor.GRAY, Blocks.GRAY_STAINED_GLASS));
@@ -541,6 +541,7 @@ public class ModBlocks {
 
     public static List<BlockLib> getBlockLib() {
         if (blockLib.isEmpty()) {
+            /* wood */
             blockLib.add(new BlockLib(OAK_UPRIGHT_SLAB, "oak_upright_slab").locale("Oak Upright Slab", "橡木台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(OAK_UPRIGHT_STAIRS, "oak_upright_stairs").locale("Oak Upright Stairs", "橡木楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(SPRUCE_UPRIGHT_SLAB, "spruce_upright_slab").locale("Spruce Upright Slab", "云杉木台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
@@ -561,8 +562,15 @@ public class ModBlocks {
             blockLib.add(new BlockLib(BAMBOO_UPRIGHT_STAIRS, "bamboo_upright_stairs").locale("Bamboo Upright Stairs", "竹楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(BAMBOO_MOSAIC_UPRIGHT_SLAB, "bamboo_mosaic_upright_slab").locale("Bamboo Mosaic Upright Slab", "竹马赛克台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(BAMBOO_MOSAIC_UPRIGHT_STAIRS, "bamboo_mosaic_upright_stairs").locale("Bamboo Mosaic Upright Stairs", "竹马赛克楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(CRIMSON_UPRIGHT_SLAB, "crimson_upright_slab").locale("Crimson Upright Slab", "绯红木台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(CRIMSON_UPRIGHT_STAIRS, "crimson_upright_stairs").locale("Crimson Upright Stairs", "绯红木楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(WARPED_UPRIGHT_SLAB, "warped_upright_slab").locale("Warped Upright Slab", "诡异木台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(WARPED_UPRIGHT_STAIRS, "warped_upright_stairs").locale("Warped Upright Stairs", "诡异木楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            /* stone */
             blockLib.add(new BlockLib(STONE_UPRIGHT_SLAB, "stone_upright_slab").locale("Stone Upright Slab", "石头台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(STONE_UPRIGHT_STAIRS, "stone_upright_stairs").locale("Stone Upright Stairs", "石头楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(SMOOTH_STONE_STAIRS, "smooth_stone_stairs").locale("Smooth Stone Stairs", "平滑石楼梯").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.SMOOTH_STONE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(SMOOTH_STONE_TRANSVERSE_STAIRS, "smooth_stone_transverse_stairs").locale("Smooth Stone Transverse Stairs", "横纹平滑石楼梯").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().texture(Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE_SLAB, "_side").creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(SMOOTH_STONE_UPRIGHT_SLAB, "smooth_stone_upright_slab").locale("Smooth Stone Upright Slab", "平滑石头台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(SMOOTH_STONE_UPRIGHT_STAIRS, "smooth_stone_upright_stairs").locale("Smooth Stone Upright Stairs", "平滑石头楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(SANDSTONE_UPRIGHT_SLAB, "sandstone_upright_slab").locale("Sandstone Upright Slab", "砂岩台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
@@ -619,16 +627,21 @@ public class ModBlocks {
             blockLib.add(new BlockLib(POLISHED_ANDESITE_UPRIGHT_STAIRS, "polished_andesite_upright_stairs").locale("Polished Andesite Upright Stairs", "磨制安山岩楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DIORITE_UPRIGHT_SLAB, "diorite_upright_slab").locale("Diorite Upright Slab", "闪长岩台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(DIORITE_UPRIGHT_STAIRS, "diorite_upright_stairs").locale("Diorite Upright Stairs", "闪长岩楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(CRIMSON_UPRIGHT_SLAB, "crimson_upright_slab").locale("Crimson Upright Slab", "绯红木台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(CRIMSON_UPRIGHT_STAIRS, "crimson_upright_stairs").locale("Crimson Upright Stairs", "绯红木楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(WARPED_UPRIGHT_SLAB, "warped_upright_slab").locale("Warped Upright Slab", "诡异木台阶（竖直）").mineableWithAxe().slab().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(WARPED_UPRIGHT_STAIRS, "warped_upright_stairs").locale("Warped Upright Stairs", "诡异木楼梯（竖直）").mineableWithAxe().stairs().wooden().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(BLACKSTONE_UPRIGHT_SLAB, "blackstone_upright_slab").locale("Blackstone Upright Slab", "黑石台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(BLACKSTONE_UPRIGHT_STAIRS, "blackstone_upright_stairs").locale("Blackstone Upright Stairs", "黑石楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(POLISHED_BLACKSTONE_BRICK_UPRIGHT_SLAB, "polished_blackstone_brick_upright_slab").locale("Polished Blackstone Brick Upright Slab", "磨制黑石砖台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(POLISHED_BLACKSTONE_BRICK_UPRIGHT_STAIRS, "polished_blackstone_brick_upright_stairs").locale("Polished Blackstone Brick Upright Stairs", "磨制黑石砖楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(POLISHED_BLACKSTONE_UPRIGHT_SLAB, "polished_blackstone_upright_slab").locale("Polished Blackstone Upright Slab", "磨制黑石台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(POLISHED_BLACKSTONE_UPRIGHT_STAIRS, "polished_blackstone_upright_stairs").locale("Polished Blackstone Upright Stairs", "磨制黑石楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(COBBLED_DEEPSLATE_UPRIGHT_SLAB, "cobbled_deepslate_upright_slab").locale("Cobbled Deepslate Upright Slab", "深板岩圆石台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(COBBLED_DEEPSLATE_UPRIGHT_STAIRS, "cobbled_deepslate_upright_stairs").locale("Cobbled Deepslate Upright Stairs", "深板岩圆石楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(POLISHED_DEEPSLATE_UPRIGHT_SLAB, "polished_deepslate_upright_slab").locale("Polished Deepslate Upright Slab", "磨制深板岩台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(POLISHED_DEEPSLATE_UPRIGHT_STAIRS, "polished_deepslate_upright_stairs").locale("Polished Deepslate Upright Stairs", "磨制深板岩楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_SLAB, "deepslate_tile_upright_slab").locale("Deepslate Tile Upright Slab", "深板岩瓦台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_STAIRS, "deepslate_tile_upright_stairs").locale("Deepslate Tile Upright Stairs", "深板岩瓦楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_SLAB, "deepslate_brick_upright_slab").locale("Deepslate Brick Upright Slab", "深板岩砖台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_STAIRS, "deepslate_brick_upright_stairs").locale("Deepslate Brick Upright Stairs", "深板岩砖楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            /* copper */
             blockLib.add(new BlockLib(CUT_COPPER_UPRIGHT_SLAB, "cut_copper_upright_slab").locale("Cut Copper Upright Slab", "切制铜台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.STONE_TOOLS).slab().copper(false).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(CUT_COPPER_UPRIGHT_STAIRS, "cut_copper_upright_stairs").locale("Cut Copper Upright Stairs", "切制铜楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.STONE_TOOLS).stairs().copper(false).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(EXPOSED_CUT_COPPER_UPRIGHT_SLAB, "exposed_cut_copper_upright_slab").locale("Exposed Cut Copper Upright Slab", "斑驳的切制铜台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.STONE_TOOLS).slab().copper(false).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
@@ -645,21 +658,7 @@ public class ModBlocks {
             blockLib.add(new BlockLib(WAXED_WEATHERED_CUT_COPPER_UPRIGHT_STAIRS, "waxed_weathered_cut_copper_upright_stairs").locale("Waxed Weathered Cut Copper Upright Stairs", "涂蜡的锈蚀切制铜楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.STONE_TOOLS).stairs().copper(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_SLAB, "waxed_oxidized_cut_copper_upright_slab").locale("Waxed Oxidized Cut Copper Upright Slab", "涂蜡的氧化切制铜台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.STONE_TOOLS).slab().copper(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(WAXED_OXIDIZED_CUT_COPPER_UPRIGHT_STAIRS, "waxed_oxidized_cut_copper_upright_stairs").locale("Waxed Oxidized Cut Copper Upright Stairs", "涂蜡的氧化切制铜楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.STONE_TOOLS).stairs().copper(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(COBBLED_DEEPSLATE_UPRIGHT_SLAB, "cobbled_deepslate_upright_slab").locale("Cobbled Deepslate Upright Slab", "深板岩圆石台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(COBBLED_DEEPSLATE_UPRIGHT_STAIRS, "cobbled_deepslate_upright_stairs").locale("Cobbled Deepslate Upright Stairs", "深板岩圆石楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(POLISHED_DEEPSLATE_UPRIGHT_SLAB, "polished_deepslate_upright_slab").locale("Polished Deepslate Upright Slab", "磨制深板岩台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(POLISHED_DEEPSLATE_UPRIGHT_STAIRS, "polished_deepslate_upright_stairs").locale("Polished Deepslate Upright Stairs", "磨制深板岩楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_SLAB, "deepslate_tile_upright_slab").locale("Deepslate Tile Upright Slab", "深板岩瓦台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(DEEPSLATE_TILE_UPRIGHT_STAIRS, "deepslate_tile_upright_stairs").locale("Deepslate Tile Upright Stairs", "深板岩瓦楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_SLAB, "deepslate_brick_upright_slab").locale("Deepslate Brick Upright Slab", "深板岩砖台阶（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).slab().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(DEEPSLATE_BRICK_UPRIGHT_STAIRS, "deepslate_brick_upright_stairs").locale("Deepslate Brick Upright Stairs", "深板岩砖楼梯（竖直）").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(GLASS_UPRIGHT_SLAB, "glass_upright_slab").locale("Glass Upright Slab", "玻璃台阶（竖直）").slab().translucent(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().translucent(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-
-            blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().translucent(true).texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
-            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().translucent(true).texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            blockLib.add(new BlockLib(SMOOTH_STONE_STAIRS, "smooth_stone_stairs").locale("Smooth Stone Stairs", "平滑石楼梯").stairs().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.SMOOTH_STONE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
-            blockLib.add(new BlockLib(SMOOTH_STONE_TRANSVERSE_STAIRS, "smooth_stone_transverse_stairs").locale("Smooth Stone Transverse Stairs", "横纹平滑石楼梯").mineableWithPickaxe(BlockLib.LEVEL.WOOD).stairs().texture(Blocks.SMOOTH_STONE, Blocks.SMOOTH_STONE_SLAB, "_side").creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            /* concrete */
             blockLib.add(new BlockLib(WHITE_CONCRETE_SLAB, "white_concrete_slab").locale("White Concrete Slab", "白色混凝土台阶").slab().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.WHITE_CONCRETE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(LIGHT_GRAY_CONCRETE_SLAB, "light_gray_concrete_slab").locale("Light Gray Concrete Slab", "淡灰色混凝土台阶").slab().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.LIGHT_GRAY_CONCRETE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(GRAY_CONCRETE_SLAB, "gray_concrete_slab").locale("Gray Concrete Slab", "灰色混凝土台阶").slab().mineableWithPickaxe(BlockLib.LEVEL.WOOD).texture(Blocks.GRAY_CONCRETE).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
@@ -788,7 +787,11 @@ public class ModBlocks {
             blockLib.add(new BlockLib(PURPLE_CONCRETE_POWDER_UPRIGHT_STAIRS, "purple_concrete_powder_upright_stairs").locale("Purple Concrete Powder Upright Stairs", "紫色混凝土粉末楼梯（竖直）").stairs().texture(Blocks.PURPLE_CONCRETE_POWDER).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(MAGENTA_CONCRETE_POWDER_UPRIGHT_STAIRS, "magenta_concrete_powder_upright_stairs").locale("Magenta Concrete Powder Upright Stairs", "品红色混凝土粉末楼梯（竖直）").stairs().texture(Blocks.MAGENTA_CONCRETE_POWDER).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(PINK_CONCRETE_POWDER_UPRIGHT_STAIRS, "pink_concrete_powder_upright_stairs").locale("Pink Concrete Powder Upright Stairs", "粉红色混凝土粉末楼梯（竖直）").stairs().texture(Blocks.PINK_CONCRETE_POWDER).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
-            /* Stained Glass */
+            /* glass */
+            blockLib.add(new BlockLib(GLASS_SLAB, "glass_slab").locale("Glass Slab", "玻璃台阶").slab().translucent(true).texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
+            blockLib.add(new BlockLib(GLASS_STAIRS, "glass_stairs").locale("Glass Stairs", "玻璃楼梯").stairs().translucent(true).texture(Blocks.GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(GLASS_UPRIGHT_SLAB, "glass_upright_slab").locale("Glass Upright Slab", "玻璃台阶（竖直）").slab().translucent(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
+            blockLib.add(new BlockLib(GLASS_UPRIGHT_STAIRS, "glass_upright_stairs").locale("Glass Upright Stairs", "玻璃楼梯（竖直）").stairs().translucent(true).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS).complexCube());
             blockLib.add(new BlockLib(WHITE_STAINED_GLASS_SLAB, "white_stained_glass_slab").locale("White Stained Glass Slab", "白色染色玻璃台阶").slab().translucent().texture(Blocks.WHITE_STAINED_GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(LIGHT_GRAY_STAINED_GLASS_SLAB, "light_gray_stained_glass_slab").locale("Light Gray Stained Glass Slab", "淡灰色染色玻璃台阶").slab().translucent().texture(Blocks.LIGHT_GRAY_STAINED_GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
             blockLib.add(new BlockLib(GRAY_STAINED_GLASS_SLAB, "gray_stained_glass_slab").locale("Gray Stained Glass Slab", "灰色染色玻璃台阶").slab().translucent().texture(Blocks.GRAY_STAINED_GLASS).creativeTab(Utils.ONECORE_CREATIVE_TAB_USS));
