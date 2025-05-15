@@ -1,0 +1,7 @@
+{
+  "parent": "uprightss:block/complex_stairs_outer",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "uv": "uprightss:block/black_stained_glass_upright"
+  }
+}

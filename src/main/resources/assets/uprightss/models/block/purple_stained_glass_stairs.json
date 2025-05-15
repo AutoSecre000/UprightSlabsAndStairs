@@ -1,0 +1,7 @@
+{
+  "parent": "uprightss:block/complex_stairs",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "uv": "uprightss:block/purple_stained_glass_upright"
+  }
+}
