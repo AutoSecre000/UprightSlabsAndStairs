@@ -51,9 +51,9 @@ public class ModBlocks {
         RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         TagKey<Item> itemTagKey = TagKey.create(Registries.ITEM,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         ModItem modItem = new ModItem(itemRegistryObject, itemTagKey);
         return new ModBlock(blockRegistryObject, modItem, blockTagKey);
     }
@@ -63,9 +63,9 @@ public class ModBlocks {
         RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         TagKey<Item> itemTagKey = TagKey.create(Registries.ITEM,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         ModItem modItem = new ModItem(itemRegistryObject, itemTagKey);
         return new ModBlock(blockRegistryObject, modItem, blockTagKey);
     }
@@ -75,9 +75,9 @@ public class ModBlocks {
         RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         TagKey<Item> itemTagKey = TagKey.create(Registries.ITEM,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         ModItem modItem = new ModItem(itemRegistryObject, itemTagKey);
         return new ModBlock(blockRegistryObject, modItem, blockTagKey);
     }
@@ -87,9 +87,9 @@ public class ModBlocks {
         RegistryObject<Item> itemRegistryObject = ModItems.ITEMS.register(name,
                 () -> new CustomBlockItem(blockRegistryObject.get(), new Item.Properties()));
         TagKey<Block> blockTagKey = TagKey.create(Registries.BLOCK,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         TagKey<Item> itemTagKey = TagKey.create(Registries.ITEM,
-                new ResourceLocation(OneCore.MODID, name + "_tag"));
+                ResourceLocation.fromNamespaceAndPath(OneCore.MODID, name + "_tag"));
         ModItem modItem = new ModItem(itemRegistryObject, itemTagKey);
         return new ModBlock(blockRegistryObject, modItem, blockTagKey);
     }

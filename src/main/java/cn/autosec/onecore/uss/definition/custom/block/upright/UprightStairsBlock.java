@@ -103,9 +103,9 @@ public abstract class UprightStairsBlock extends Block implements SimpleWaterlog
         return SimpleWaterloggedBlock.super.placeLiquid(levelAccessor, pos, blockState, fluidState);
     }
 
-    public boolean canPlaceLiquid(@Nullable Player player, @NotNull BlockGetter blockGetter,
+    public boolean canPlaceLiquid(@NotNull BlockGetter blockGetter,
                                   @NotNull BlockPos pos, BlockState state, @NotNull Fluid fluid) {
-        return SimpleWaterloggedBlock.super.canPlaceLiquid(player, blockGetter, pos, state, fluid);
+        return SimpleWaterloggedBlock.super.canPlaceLiquid(blockGetter, pos, state, fluid);
     }
 
     public @NotNull BlockState updateShape(@NotNull BlockState state1, @NotNull Direction direction,

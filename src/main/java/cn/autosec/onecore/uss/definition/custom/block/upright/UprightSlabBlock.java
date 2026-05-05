@@ -132,10 +132,10 @@ public abstract class UprightSlabBlock extends Block implements SimpleWaterlogge
                 && SimpleWaterloggedBlock.super.placeLiquid(levelAccessor, pos, blockState, fluidState);
     }
 
-    public boolean canPlaceLiquid(@Nullable Player player, @NotNull BlockGetter blockGetter,
+    public boolean canPlaceLiquid(@NotNull BlockGetter blockGetter,
                                   @NotNull BlockPos pos, BlockState state, @NotNull Fluid fluid) {
         return state.getValue(TYPE) != ModSlabTypes.DOUBLE
-                && SimpleWaterloggedBlock.super.canPlaceLiquid(player, blockGetter, pos, state, fluid);
+                && SimpleWaterloggedBlock.super.canPlaceLiquid(blockGetter, pos, state, fluid);
     }
 
     public @NotNull BlockState updateShape(@NotNull BlockState state1, @NotNull Direction direction,
